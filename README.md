@@ -1,4 +1,4 @@
-0# Focustime ⏰
+## Focustime ⏰
 
 **Focustime** é um aplicativo projetado para ajudar você a contabilizar e organizar seu tempo de estudo de forma eficiente. Com funcionalidades como timer em tempo real, compartilhamento de progresso, metas personalizáveis e um ranking geral, o Focustime é a ferramenta ideal para estudantes que desejam maximalizar sua produtividade.
 ---
