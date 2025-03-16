@@ -1,4 +1,4 @@
-# Focustime ⏰
+0# Focustime ⏰
 
 **Focustime** é um aplicativo projetado para ajudar você a contabilizar e organizar seu tempo de estudo de forma eficiente. Com funcionalidades como timer em tempo real, compartilhamento de progresso, metas personalizáveis e um ranking geral, o Focustime é a ferramenta ideal para estudantes que desejam maximalizar sua produtividade.
 ---
@@ -22,7 +22,7 @@
 - **Jira**: [Projeto no Jira](https://focustimenow.atlassian.net/jira/software/projects/FOC/summary)  
 - **Histórias do projeto**: [Documentação](https://docs.google.com/document/d/1lMAlUU5gH1FcrGkc81p7c0IjeVZAILIUsYVd-0jkeJw/edit?usp=sharing)
 - **youtube**: [apresentação do protótipo](https://youtu.be/4_51bAq3vGY)
-- **backlog e quadro do projeto**:[Documento](https://docs.google.com/document/d/1CoXZUGrOC8zCm6xNiq8LR7gmqvhTzZx5oNGm1arXVo8/edit?usp=sharing)
+- **backlog e quadro do projeto**: [Documento](https://docs.google.com/document/d/1CoXZUGrOC8zCm6xNiq8LR7gmqvhTzZx5oNGm1arXVo8/edit?usp=sharing)
 
 ## Primeira entrega 📄
 O objetivo desta primeira entrega é fornecer uma visão inicial de como o aplicativo Focustime será visualmente e funcionalmente estruturado. Utilizando o Figma, esssa entrega permite visualizar o design e a experiência do usuário ainda como rascunho, servindo como base para o desenvolvimento completo do projeto. por mais que o trabalho não esteja finalizado, essa etapa oferece uma ideia clara de como o produto final ficará, proporcionando um direcionamento para ajustes e melhorias nas próximas fases de desenvolvimento.
