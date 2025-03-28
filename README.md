@@ -33,5 +33,7 @@ O objetivo desta primeira entrega é fornecer uma visão inicial de como o aplic
 | Heloisa Borba | hbbs@cesar.school     |
 | Lucas Menezes | lms4@cesar.school    |
 | Luana Fernandes   | lmfg@cesar.school        |
+| Thiago Fernandes | tfm3@cesar.school |
+
 
 
