@@ -1,6 +1,6 @@
-# from django.urls import path
-# from FocusTime.views import index, teste
+from django.urls import path
+from . import views
 
-# urlpatterns = [
-    
-# ]
+urlpatterns = [
+    path('', views.home)
+]
