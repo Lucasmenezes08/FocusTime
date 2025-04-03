@@ -1,12 +1,14 @@
+# models.py
 from django.db import models
 
 class Materia(models.Model):
-    nome = models.CharField(max_length=25)
+    nome_materia = models.CharField(max_length=100)
+    horas_meta = models.IntegerField()
+    minutos_meta = models.IntegerField()
+    segundos_meta = models.IntegerField()
+    horas = models.IntegerField()
+    minutos = models.IntegerField()
+    segundos = models.IntegerField()
 
-class Meta(models.Model):
-    materia = models.ForeignKey(Materia, on_delete=models.CASCADE, related_name="metas")
-    horas = models.PositiveIntegerField(default=0)
-    minutos = models.PositiveIntegerField(default=0)
-    segundos = models.PositiveIntegerField(default=0)
     def __str__(self):
-        return self.materia
+        return self.nome_materia

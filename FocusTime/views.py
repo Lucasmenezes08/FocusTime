@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from .models import Materia
 
 # Create your views here.
 
-def home (request):
+def index (request):
     return render(request, "index.html")
 
 
@@ -17,9 +18,19 @@ def cadastro (request):
         minutos = request.POST.get('minutos')
         segundos = request.POST.get('segundos')
         
+        materia = Materia(
+            nome_materia=nome_materia,
+            horas_meta=horas_meta,
+            minutos_meta=minutos_meta,
+            segundos_meta=segundos_meta,
+            horas=horas,
+            minutos=minutos,
+            segundos=segundos
+        )
+        materia.save()
     
         messages.success(request, f'Materia "{nome_materia}" cadastrada!')
-        cadastro.save()
+    
         return redirect('index')
     
     return render (request ,"cadastro.html")
