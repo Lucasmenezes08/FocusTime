@@ -31,13 +31,13 @@ body {
     padding: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 .usericon {
     width: 100px;
     height: 100px;
-    background-color:rgb(50, 102, 138);
+    background-color:rgb(190, 225, 250);
     color: rgb(255, 255, 255);
     border-radius: 50%; 
     {% comment %} faz circulo {% endcomment %}
@@ -45,6 +45,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 
 }
 
