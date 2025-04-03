@@ -13,7 +13,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    {% comment %} cor da letra {% endcomment %}
+
 }
 
 
@@ -37,10 +37,9 @@ body {
 .usericon {
     width: 100px;
     height: 100px;
-    background-color:rgb(190, 225, 250);
-    color: rgb(255, 255, 255);
+    background-color:rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border-radius: 50%; 
-    {% comment %} faz circulo {% endcomment %}
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,8 +70,8 @@ body {
     padding: 10px 20px;
     color: rgb(255, 255, 255);
     font-size: 20px;
-    display: block;
     border-radius: 5px;
+    display:block;
     transition: background-color 0.3s ease;
     
 }
