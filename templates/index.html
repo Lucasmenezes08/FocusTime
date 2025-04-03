@@ -24,6 +24,23 @@
 
         <div class="content">
             <h1>Dashboard</h1>
+            {%if menssages %}
+            <div>class = "menssages"</div>
+                {%for menssage in menssages%}
+                <div class = "messagse{{message.tags}}">
+                    <p>{{ message }}</p>
+                </div>
+                {% endfor %}
+       
+            {% endif %}
+
+            {% if menssages %}
+            <div class = "materia_cadastrada">
+                    <section class="container_materia">
+                        <button class="mais">+</button>
+                    </section>
+            </div>
+            {% endif %}
         </div>
 
     </div>
@@ -31,5 +48,3 @@
 </body>
 </html>
     
-</body>
-</html>

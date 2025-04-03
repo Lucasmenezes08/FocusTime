@@ -24,12 +24,13 @@ body {
 
 
 .sidebar {
-    background-color: #333;
-    color: rgb(87, 87, 87);
     width: 300px; 
     height: 100vh;
     padding: 40px;
     display: flex;
+    background-color: #212121;
+    color: rgb(87, 87, 87);
+    box-shadow: 0px 2px 10px black;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -52,6 +53,7 @@ body {
     text-align: center;
     margin-bottom: 20px;
     color: rgb(193, 193, 193);
+    
 }
 
 .sidebar ul {
@@ -95,6 +97,34 @@ body {
 
 .content p {
     font-size: 18px;
+}
+
+.materia_cadastrada{
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.container_materia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 7.5rem;
+    width: 7.5rem ;
+    background-color: #9D9D9D;
+    border: none;
+    margin-bottom: 1.3rem;
+    box-shadow: 0px 1px 5px black;
+    margin-top: -1.5rem;
+}
+
+.mais{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(217, 220, 224);
 }
 
 

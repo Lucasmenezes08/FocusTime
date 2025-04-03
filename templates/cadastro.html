@@ -10,7 +10,8 @@
 </head>
 <body>
     <section class="container">
-        <form method="POST">
+        <form method="POST" action = {% url 'cadastro_materia'%}>
+            {% csrf_token %}
             <section class="btn-somar">
                 <button class="mais">+</button>
             </section>
