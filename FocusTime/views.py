@@ -16,9 +16,10 @@ def cadastro (request):
         horas = request.POST.get('horas')
         minutos = request.POST.get('minutos')
         segundos = request.POST.get('segundos')
+        
     
         messages.success(request, f'Materia "{nome_materia}" cadastrada!')
-
+        cadastro.save()
         return redirect('index')
     
     return render (request ,"cadastro.html")
