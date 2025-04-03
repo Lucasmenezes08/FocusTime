@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusTime</title>
+    <link rel="stylesheet" href="{% static "cadastro.css" %}">
+</head>
+<body>
+    <section class="container">
+        <form method="POST">
+            <section class="btn-somar">
+                <button class="mais">+</button>
+            </section>
+            <input type="text" name="nome-materia" class="nome-materia" minlength="1" maxlength="25" placeholder="Nome da matéria:" required>
+            <section class="container-metas">
+                <section class="meta-texto">
+                    <p>Atividade/meta:</p>
+                </section>
+                <section class="container-duration-meta">
+                    <section class="container-texto">
+                        <p>Insira a duração específica para esta atividade:</p>
+                    </section>
+                    <section class="container-cronometro-meta">
+                        <input type="number" name="horas-meta" value="hora-meta" min="0" max="9" step="0" placeholder="H" required>
+                        <input type="number" name="horas-meta" value="hora-meta" min="0" max="9" placeholder="H" required>
+                        <span>:</span>
+                        <input type="number" name="minutos-meta" value="minuto-meta" min="0" max="5" placeholder="M" required>
+                        <input type="number" name="minutos-meta" value="minuto-meta" min="0" max="9" placeholder="M" required>
+                        <span>:</span>
+                        <input type="number" name="segundos-meta" value="segundo-meta" min="0" max="5" placeholder="S" required>
+                        <input type="number" name="segundos-meta" value="segundo-meta" min="0" max="9" placeholder="S" required>
+                    </section>
+                </section>    
+            </section>
+
+            <section class="container-cronometro-materia">
+                <p>insira a duração da atividade:</p>
+                <input type="number" name="horas" value="hora" min="0" max="9" placeholder="H" required>
+                <input type="number" name="horas" value="hora" min="0" max="9" placeholder="H" required>
+                <span>:</span>
+                <input type="number" name="minutos" value="minuto" min="0" max="5" placeholder="M" required>
+                <input type="number" name="minutos" value="minuto" min="0" max="9" placeholder="M" required>
+                <span>:</span>
+                <input type="number" name="segundos" value="segundo" min="0" max="5" placeholder="S" required>
+                <input type="number" name="segundos" value="segundo" min="0" max="9" placeholder="S" required>
+            </section>
+            <section class="btn-submit">
+                <button type="submit" class="btn-submit-cadastro">Criar</button>
+            </section>    
+        </form>
+    </section>
+</body>
+</html>
