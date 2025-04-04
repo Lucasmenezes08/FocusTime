@@ -67,7 +67,6 @@ body {
     border-radius: 5px;
     display:block;
     transition: background-color 0.3s ease;
-    
 }
 
 .sidebar ul li a:hover {
@@ -110,6 +109,8 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
 }
+
+
 
 
 

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FocusTime</title>
     <link rel="stylesheet" href="{% static "cronometro.css" %}">
+    <link rel="stylesheet" href="{% static "modal.css" %}">
 </head>
 <body>
     <section class="container-pai">
@@ -32,6 +33,27 @@
         <section class="break">
             <br/>
         </section>
+
+        <section class="modals" id="modal">
+            <section class="modal-content" id="modal-cont">
+                <p>Insira a matéria que deseja depositar o tempo cronometrado</p>
+                {% if materias %}
+                <div class="materias">
+                    {% for materia in materias %}
+                        <div class="materia-container">
+                            <h3><span>{{materia.nome_materia}}</span> <input type="checkbox" id="check" name="check-materia" required></h3>
+                        </div>
+                        {% endfor %}
+                    
+                </div>
+                <button type="submit" class="btn-submit-materia">
+                    Enviar
+                </button>
+                {% endif %}
+            </section>
+        </section>
+
+
         <section class="lugar-metas" id="metas">
             <br/>
         </section>
@@ -39,5 +61,6 @@
 
     {% load static %}
     <script src="{% static '/cronometro.js' %}"></script>
+    <script src="{% static '/modal.js' %}"></script>
 </body>
 </html>

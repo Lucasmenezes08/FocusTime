@@ -44,7 +44,8 @@ def cadastro (request):
 
 
 def cronometro (request):
-    return render (request,"cronometro.html")
+    materias = Materia.objects.all()
+    return render (request,"cronometro.html" , {"materias": materias} )
 
 # def CadastroMetas(request):
 #     if request.method == 'POST':
