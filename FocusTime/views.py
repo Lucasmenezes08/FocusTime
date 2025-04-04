@@ -43,6 +43,10 @@ def cadastro (request):
     
     return render (request ,"cadastro.html")
 
+
+def cronometro (request):
+    return render (request,"cronometro.html")
+
 # def CadastroMetas(request):
 #     if request.method == 'POST':
 #         nome_meta = request.POST.get('nome-meta')
