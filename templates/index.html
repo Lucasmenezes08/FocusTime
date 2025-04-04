@@ -11,9 +11,6 @@
     <title>FocusTime</title>
 </head>
 <body>
-    <nav style="background-color: #9D9D9D; " class = "navbar">
-        <div class = "container_nav"></div>
-    </nav>
     <div class="menuprincipal">
         <div class="sidebar">
             <div class="usericon">U</div>
@@ -31,10 +28,12 @@
 
             {% if materias %}
             <div class="materia_cadastrada">
+                <div class="container_materia-wrapper">
                 {% for materia in materias %}
                     <div class="container_materia">
-                            <h2>{{materia.nome_materia}}</h2>
-                    </div>
+                        <h2>{{materia.nome_materia}}</h2>
+                </div>
+                </div>
                 {% endfor %}
             </div>
             {% endif %}
