@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,9 @@
     <title>FocusTime</title>
 </head>
 <body>
+    <nav style="background-color: #9D9D9D; " class = "navbar">
+        <div class = "container_nav"></div>
+    </nav>
     <div class="menuprincipal">
         <div class="sidebar">
             <div class="usericon">U</div>
@@ -24,34 +28,14 @@
 
         <div class="content">
             <h1>Dashboard</h1>
-            {%if messages %}
-            <div>class = "messages"</div>
-                {%for message in messages%}
-                <div class = "messages{{message.tags}}">
-                    <p>{{ message }}</p>
-                </div>
-                {% endfor %}
-       
-            {% endif %}
-
-            {% if messages %}
-            <div class = "materia_cadastrada">
-                    <section class="container_materia">
-                        <button class="mais">+</button>
-                    </section>
-            </div>
-            {% endif %}
 
             {% if materias %}
             <div class="materia_cadastrada">
-                <section class="container_materia">
-                    <button class="mais">+</button>
-                    <ul>
-                        {% for materia in materias %}
-                            <li>{{ materia.nome_materia }} ({{ materia.horas }}h {{ materia.minutos }}m {{ materia.segundos }}s)</li>
-                        {% endfor %}
-                    </ul>
-                </section>
+                {% for materia in materias %}
+                    <div class="container_materia">
+                            <h2>{{materia.nome_materia}}</h2>
+                    </div>
+                {% endfor %}
             </div>
             {% endif %}
         </div>

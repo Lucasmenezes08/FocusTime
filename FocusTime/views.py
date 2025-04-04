@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from .models import Materia
 from .models import Meta
 
@@ -7,7 +6,7 @@ from .models import Meta
 
 def index (request):
     materias = Materia.objects.all()
-    return render(request, "index.html")
+    return render(request, "index.html", {"materias": materias})
 
 
 def cadastro (request):
@@ -37,7 +36,7 @@ def cadastro (request):
             materia.save()
             return redirect('index')
         else:
-            messages.error(request, 'Por favor, preencha todos os campos da matéria.')
+
             return render(request, "cadastro.html")
         
     
