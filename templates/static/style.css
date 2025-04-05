@@ -101,9 +101,12 @@ body {
     background-color: #fff;
 }
 .container_materia-wrapper {
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 10px; 
+    display: grid;
+    grid-template-areas: 
+        "materia1 materia2 materia3"
+        "materia4 materia5 materia6"
+        "materia7 materia8 materia9";
+    gap: 10px;
 }
 
 .container_materia{
@@ -127,19 +130,157 @@ body {
     border: none;
     background-color: rgb(217, 220, 224);
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.menuprincipal {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    padding: 40px;
+    display: flex;
+    background-color: #b4b4b4;
+    color: rgb(87, 87, 87);
+    box-shadow: 0px 2px 10px black;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.usericon {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(110, 109, 109);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: rgb(55, 55, 55);
+    font-size: 18px;
+    border-radius: 5px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: none;
+    background-color: rgb(113, 113, 113);
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.content h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+}
+
+.materia_cadastrada {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.container_materia-wrapper {
+    display: grid;
+    grid-template-areas: 
+        "materia1 materia2 materia3"
+        "materia4 materia5 materia6"
+        "materia7 materia8 materia9";
+    gap: 2px;
+    grid-column-gap: 1px; 
+    grid-row-gap: 5px;
+   
+}
+
+.container_materia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 7.5rem;
+    width: 7.5rem;
+    background-color: #9D9D9D;
+    border: none;
+    margin-bottom: 1rem;
+    box-shadow: 0px 1px 5px black;
+    margin-top: 1rem;
+    margin-left: -3px; 
+    margin-right: -3px;
+}
+
+.mais {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(217, 220, 224);
+}
+
+
 @media (max-width: 768px) {
     .container_materia-wrapper {
-        grid-template-columns: 1fr 1fr; 
+        grid-template-areas: 
+            "materia1 materia2"
+            "materia3 materia4";
     }
 }
 
 @media (max-width: 480px) {
     .container_materia-wrapper {
-        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "materia1"
+            "materia2"
+            "materia3"
+            "materia4"
+            "materia5"
+            "materia6";
     }
 }
-
-
-
 
 
