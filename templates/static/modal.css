@@ -1,13 +1,22 @@
 .modals {
     width: 100vw;
     height: 100vh;
+    visibility: hidden;
     display: flex;
-    position : fixed;
+    position:fixed;
+    opacity: 0;  
     top: 0;
     left :0;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    
+}
+
+.modals.show {
+    visibility: visible; 
+    opacity: 1;         
 }
 
 .modal-content {
