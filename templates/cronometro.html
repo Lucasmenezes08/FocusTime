@@ -31,7 +31,7 @@
             </section>
         </section>
         <section class="break">
-            <br/>
+           <br/>
         </section>
 
         <section class="modals" id="modal">
@@ -55,9 +55,17 @@
 
 
         <section class="lugar-metas" id="metas">
-            <br/>
+            {% if metas %}
+            <div class="metas">
+                {% for meta in metas %}
+                    <div class="metas-container">
+                        <span class="meta-nome">{{meta.nome_metas}}</span>
+                        <span class="meta-tempo">{{meta.horas_meta}}:{{meta.minutos_meta}}:{{meta.segundos_meta}}</span>
+                    </div>
+            </div>
+                 {% endfor %}
+            {% endif %}
         </section>
-    </section>
 
     {% load static %}
     <script src="{% static '/cronometro.js' %}"></script>
