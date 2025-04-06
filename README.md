@@ -23,6 +23,7 @@
 - **Histórias do projeto**: https://docs.google.com/document/d/1Fll4IUvsdfB777OE4EdtUfXwO-ygG_pBUts8kASELos/edit?usp=sharing
 - **youtube**: [apresentação do protótipo - legendado](https://youtu.be/4_51bAq3vGY) [apresentação do protótipo - dublado](https://youtu.be/zz-bhv_pV1E)
 - **backlog e quadro do projeto**: [Documento](https://docs.google.com/document/d/1CoXZUGrOC8zCm6xNiq8LR7gmqvhTzZx5oNGm1arXVo8/edit?usp=sharing)
+- **Relatório programação em par**: [relatório programação] (https://docs.google.com/document/d/1-XticSoMchm8W1HqzMP1LiDjTKTyeXXCzLYorMRl1rw/edit)
 
 ## Primeira entrega 📄
 O objetivo desta primeira entrega é fornecer uma visão inicial de como o aplicativo Focustime será visualmente e funcionalmente estruturado. Utilizando o Figma, esssa entrega permite visualizar o design e a experiência do usuário ainda como rascunho, servindo como base para o desenvolvimento completo do projeto. por mais que o trabalho não esteja finalizado, essa etapa oferece uma ideia clara de como o produto final ficará, proporcionando um direcionamento para ajustes e melhorias nas próximas fases de desenvolvimento.
