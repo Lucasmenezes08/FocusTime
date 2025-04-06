@@ -24,7 +24,7 @@
 - **Casos de erro**:[erro das histórias](https://docs.google.com/document/d/1Fll4IUvsdfB777OE4EdtUfXwO-ygG_pBUts8kASELos/edit?usp=sharing)
 - **youtube**: [apresentação do protótipo - legendado](https://youtu.be/4_51bAq3vGY) [apresentação do protótipo - dublado](https://youtu.be/zz-bhv_pV1E)
 - **backlog e quadro do projeto**: [Documento](https://docs.google.com/document/d/1CoXZUGrOC8zCm6xNiq8LR7gmqvhTzZx5oNGm1arXVo8/edit?usp=sharing)
-- **Relatório programação em par**: [relatório programação](https://docs.google.com/document/d/1-XticSoMchm8W1HqzMP1LiDjTKTyeXXCzLYorMRl1rw/edit)
+
 
 ## Primeira entrega 📄
 O objetivo desta primeira entrega é fornecer uma visão inicial de como o aplicativo Focustime será visualmente e funcionalmente estruturado. Utilizando o Figma, esssa entrega permite visualizar o design e a experiência do usuário ainda como rascunho, servindo como base para o desenvolvimento completo do projeto. por mais que o trabalho não esteja finalizado, essa etapa oferece uma ideia clara de como o produto final ficará, proporcionando um direcionamento para ajustes e melhorias nas próximas fases de desenvolvimento.
@@ -35,7 +35,13 @@ O objetivo desta primeira entrega é fornecer uma visão inicial de como o aplic
 ## Segunda entrega
 
 ![Print backlog](img/Captura%20de%20tela%202025-04-06%20191244.png)
-![Print sprint](img/Captura%20de%20tela%202025-04-06%20194901.png)
+![Print sprint](img/Captura%20de%20tela%202025-04-06%20194901.png) 
+
+## Links importantes ⚠️
+- **Relatório programação em par**: [relatório programação](https://docs.google.com/document/d/1-XticSoMchm8W1HqzMP1LiDjTKTyeXXCzLYorMRl1rw/edit)
+- **youtube**: [apresentação do protótipo (2 entrega) - legendado/dublado][[](https://www.youtube.com/watch?v=8OI8J7PQgNk)]
+- **site**: [Site do projeto](https://focustime.azurewebsites.net/)
+
 
 ## GRUPO 
 | Aluno | email |
