@@ -32,6 +32,11 @@ O objetivo desta primeira entrega é fornecer uma visão inicial de como o aplic
 ![Quadros](img/WhatsApp%20Image%202025-03-28%20at%2014.43.03.jpeg)
 ![Quadros](img/WhatsApp%20Image%202025-03-28%20at%2014.43.11.jpeg)
 
+## Segunda entrega
+
+![Print backlog](img/Captura de tela 2025-04-06 191244.png)
+![Print sprint](img/Captura de tela 2025-04-06 194901.png)
+
 ## GRUPO 
 | Aluno | email |
 |-------------|---------------------|
