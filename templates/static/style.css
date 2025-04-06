@@ -242,6 +242,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     border-radius: 10px;
     height: 7.5rem;
     width: 7.5rem;
@@ -252,6 +253,14 @@ body {
     margin-top: 1rem;
     margin-left: -3px; 
     margin-right: -3px;
+}
+
+.container_materia h2 {
+    margin-bottom: 0.7rem;
+}
+
+.container_materia p {
+    font-size : 1.0rem;
 }
 
 .mais {
