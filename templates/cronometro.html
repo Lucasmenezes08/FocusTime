@@ -59,8 +59,13 @@
             <div class="metas">
                 {% for meta in metas %}
                     <div class="metas-container">
-                        <span class="meta-nome">{{meta.nome_metas}}</span>
-                        <span class="meta-tempo">{{meta.horas_meta}}:{{meta.minutos_meta}}:{{meta.segundos_meta}}</span>
+                        <div class="meta-nome">
+                            <p>{{meta.nome_metas}}</p>
+                        </div>
+                        <div class="meta-tempo">
+                            <p>{{meta.horas_meta}}:{{meta.minutos_meta}}:{{meta.segundos_meta}}</p>
+                        </div>
+                       
                     </div>
             </div>
                  {% endfor %}
