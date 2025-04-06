@@ -39,7 +39,7 @@ O objetivo desta primeira entrega é fornecer uma visão inicial de como o aplic
 
 ## Links importantes ⚠️
 - **Relatório programação em par**: [relatório programação](https://docs.google.com/document/d/1-XticSoMchm8W1HqzMP1LiDjTKTyeXXCzLYorMRl1rw/edit)
-- **youtube**: [apresentação do protótipo (2 entrega) - legendado/dublado][[](https://www.youtube.com/watch?v=8OI8J7PQgNk)]
+- **youtube**: [apresentação do protótipo - legendado/dublado](https://youtu.be/8OI8J7PQgNk?feature=shared)
 - **site**: [Site do projeto](https://focustime.azurewebsites.net/)
 
 
