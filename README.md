@@ -19,8 +19,9 @@
 
 ## Links importantes ⚠️
 - **Figma**: [Figma](https://www.figma.com/design/Zsu2h3dlnZQFJjIIsyMDmL/FocusTime?m=auto&t=hjfoeNPBILq3BWJs-6)  
-- **Jira**: [Projeto no Jira](https://focustimenow.atlassian.net/jira/software/projects/FOC/summary)  
-- **Histórias do projeto**:[Histórias](https://docs.google.com/document/d/1Fll4IUvsdfB777OE4EdtUfXwO-ygG_pBUts8kASELos/edit?usp=sharing)
+- **Jira**: [Projeto no Jira](https://focustimenow.atlassian.net/jira/software/projects/FOC/summary)
+- **Histórias**:[Histórias](https://docs.google.com/document/d/1lMAlUU5gH1FcrGkc81p7c0IjeVZAILIUsYVd-0jkeJw/edit?usp=sharing)
+- **Casos de erro**:[erro das histórias](https://docs.google.com/document/d/1Fll4IUvsdfB777OE4EdtUfXwO-ygG_pBUts8kASELos/edit?usp=sharing)
 - **youtube**: [apresentação do protótipo - legendado](https://youtu.be/4_51bAq3vGY) [apresentação do protótipo - dublado](https://youtu.be/zz-bhv_pV1E)
 - **backlog e quadro do projeto**: [Documento](https://docs.google.com/document/d/1CoXZUGrOC8zCm6xNiq8LR7gmqvhTzZx5oNGm1arXVo8/edit?usp=sharing)
 - **Relatório programação em par**: [relatório programação](https://docs.google.com/document/d/1-XticSoMchm8W1HqzMP1LiDjTKTyeXXCzLYorMRl1rw/edit)
