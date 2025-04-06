@@ -198,6 +198,7 @@ body {
     border-radius: 5px;
     display: block;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .sidebar ul li a:hover {
