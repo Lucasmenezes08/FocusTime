@@ -6,7 +6,6 @@ let intervalid = 0;
 let timer = 0;
 let mark = [];
 
-
 const cronometro_horas = (tempo) => {
     const horas = Math.floor(tempo / 3600);
     

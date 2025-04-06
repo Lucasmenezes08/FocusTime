@@ -16,3 +16,10 @@ btn.addEventListener("click", function () {
 btn_model.addEventListener("click", function () {
     modal.classList.remove('show'); 
 });
+
+modal.addEventListener("click" , function(event){
+    if (event.target === modal){
+        modal.classList.remove('show');
+        
+    }
+})
