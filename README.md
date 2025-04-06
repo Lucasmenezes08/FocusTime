@@ -34,8 +34,8 @@ O objetivo desta primeira entrega é fornecer uma visão inicial de como o aplic
 
 ## Segunda entrega
 
-![Print backlog](img/Captura de tela 2025-04-06 191244.png)
-![Print sprint](img/Captura de tela 2025-04-06 194901.png)
+![Print backlog](img/Captura%20de%20tela%202025-04-06%20191244.png)
+![Print sprint](img/Captura%20de%20tela%202025-04-06%20194901.png)
 
 ## GRUPO 
 | Aluno | email |
