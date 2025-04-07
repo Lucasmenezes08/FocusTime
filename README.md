@@ -33,7 +33,7 @@ O objetivo desta primeira entrega é fornecer uma visão inicial de como o aplic
 - **backlog e quadro do projeto**: [Documento](https://docs.google.com/document/d/1CoXZUGrOC8zCm6xNiq8LR7gmqvhTzZx5oNGm1arXVo8/edit?usp=sharing)
 
 
-## Segunda entrega
+## Segunda entrega 📄
 
 ![Print backlog](img/Captura%20de%20tela%202025-04-06%20191244.png)
 ![Print sprint](img/Captura%20de%20tela%202025-04-06%20194901.png) 
