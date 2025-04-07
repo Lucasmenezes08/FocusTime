@@ -38,6 +38,7 @@ O objetivo dessa segunda entrega é o começo da execução prática do projeto.
 ![Print backlog](img/Captura%20de%20tela%202025-04-06%20191244.png)
 ![Print sprint](img/Captura%20de%20tela%202025-04-06%20194901.png) 
 ![Print issues](Captura%20de%20tela%202025-04-07%20191407.png)
+![teste](img/Captura%20de%20tela%202025-04-07%20191407.png)
 
 ## Links importantes ⚠️
 - **Relatório programação em par**: [relatório programação](https://docs.google.com/document/d/1-XticSoMchm8W1HqzMP1LiDjTKTyeXXCzLYorMRl1rw/edit)
