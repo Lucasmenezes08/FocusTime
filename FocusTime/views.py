@@ -70,3 +70,5 @@ def cronometro (request):
     }
     return render (request,"cronometro.html" , contexto)
 
+def tela_cadastro (request):
+    return render (request , "tela_cadastro.html")
