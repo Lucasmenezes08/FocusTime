@@ -24,18 +24,19 @@
         </div>
 
         <div class="content">
-            <h1>Dashboard</h1>
 
             {% if materias %}
             <div class="materia_cadastrada">
                 <div class="container_materia-wrapper">
                 {% for materia in materias %}
-                    <div class="container_materia">
-                       <h2>{{materia.nome_materia}}</h2>
-                        <p> <span>TEMPO: </span>{{materia.horas}}:{{materia.minutos}}:{{materia.segundos}}</p>
-                
+                    <div class="materia-wrapper">
+                        <div class="container_materia">
+                            <h2>{{materia.nome_materia}}</h2>
+                            <p> <span>TEMPO: </span>{{materia.horas}}:{{materia.minutos}}:{{materia.segundos}}</p>
+                        </div>
+                        <button class="btn-consultar-materia" type="button">+</button>
                     </div>
-                {% endfor %}
+               {% endfor %}
                 </div>
             </div>
             {% endif %}
