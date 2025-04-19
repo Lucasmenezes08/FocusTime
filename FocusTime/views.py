@@ -1,15 +1,17 @@
+
 from django.shortcuts import render, redirect
-from .models import Materia
-from .models import Meta
+from .models import Materia, Meta
+from django.contrib.auth.models import User
+from django.contrib import messages
 
-# Create your views here.
-
-def index (request):
+# Página inicial
+def index(request):
     materias = Materia.objects.all()
     return render(request, "index.html", {"materias": materias})
 
 
-def cadastro (request):
+# Cadastro de matérias e metas
+def cadastro(request):
     if request.method == 'POST':
         nome_materia = request.POST.get('nome-materia')
         horas1 = request.POST.get('horas')
@@ -17,7 +19,7 @@ def cadastro (request):
         horas = str(horas1) + str(horas2) if horas1 and horas2 else '00'
 
         minutos1 = request.POST.get('minutos')
-        minutos2= request.POST.get('minutos2')
+        minutos2 = request.POST.get('minutos2')
         minutos = str(minutos1) + str(minutos2) if minutos1 and minutos2 else '00'
 
         segundos1 = request.POST.get('segundos')
@@ -54,21 +56,34 @@ def cadastro (request):
             materia.save()
             return redirect('index')
         else:
-
             return render(request, "cadastro.html")
-        
-    
-    return render (request ,"cadastro.html")
+
+    return render(request, "cadastro.html")
 
 
-def cronometro (request):
+# Página do cronômetro
+def cronometro(request):
     materias = Materia.objects.all()
     metas = Meta.objects.all()
     contexto = {
         "materias": materias,
         "metas": metas
     }
-    return render (request,"cronometro.html" , contexto)
+    return render(request, "cronometro.html", contexto)
 
-def tela_cadastro (request):
-    return render (request , "tela_cadastro.html")
+
+# Cadastro de usuários
+def tela_cadastro(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        if User.objects.filter(username=username).exists():
+            messages.error(request, 'Usuário já existe!')
+            return redirect('cadastro')
+
+        User.objects.create_user(username=username, password=password)
+        messages.success(request, 'Usuário cadastrado com sucesso!')
+        return redirect('index')  # ou redirecione para uma página de login futuramente
+
+    return render(request, "tela_cadastro.html")

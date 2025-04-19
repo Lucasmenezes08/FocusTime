@@ -1,45 +1,62 @@
-{% load static %}
 
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FocusTime</title>
-    <link rel="stylesheet" href="{% static "tela_cadastro.css" %}">
+    <link rel="stylesheet" href="{% static 'tela_cadastro.css' %}">
 </head>
 <body>
     <section class="content">
         <section class="content-right">
             <h1>Otimize seu tempo com <span>Focus Time!</span></h1>
-            <img src="{% static "img\estudo.png" %}">
+            <img src="{% static 'img/estudo.png' %}" alt="Imagem Estudo">
         </section>
         <section class="content-left">
-            <form>
+            <form action="{% url 'cadastro' %}" method="POST">
                 {% csrf_token %}
                 <h2>Cadastro</h2>
+                <!-- Exibindo mensagens de feedback (sucesso ou erro) -->
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li class="{{ message.tags }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
                 <section class="container-usuario">
-                    <label for="username">Nome de usuário:</label>
+                    <label for="usuario">Nome de usuário:</label>
                     <input type="text" name="username" id="usuario" placeholder="Nome de usuário" maxlength="20" minlength="4" required>
                 </section>
 
                 <section class="container-senha">
-                    <label for="password">Senha:</label>
+                    <label for="senha">Senha:</label>
                     <input type="password" name="password" id="senha" placeholder="Digite sua senha" maxlength="20" minlength="8" required>
                 </section>
 
                 <section class="btn-show-senha">
-                    <label for="mostrar-senha">Mostrar senha?</label>
-                    <input type="checkbox" name="mostrar-senha" id="show-senha">
+                    <label for="show-senha">Mostrar senha?</label>
+                    <input type="checkbox" id="show-senha">
                 </section>
 
                 <button type="submit">Cadastrar</button>
             </form>
-             <section class="login">
+            <section class="login">
                 <p>Já possui cadastro? </p>
                 <button class="btn-login">Clique aqui!</button>
-             </section>
+            </section>
         </section>
     </section>
+
+    <script>
+        // Handle password visibility toggle
+        document.getElementById('show-senha').addEventListener('change', function() {
+            const passwordInput = document.getElementById('senha');
+            passwordInput.type = this.checked ? 'text' : 'password';
+        });
+    </script>
 </body>
 </html>
