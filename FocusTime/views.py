@@ -87,3 +87,7 @@ def tela_cadastro(request):
         return redirect('index')  
 
     return render(request, "tela_cadastro.html")
+
+def ranking(request):
+    return render(request, "ranking.html")
+

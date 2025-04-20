@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'ranking.css' %}">
+
+<div class="container">
+    <div class="sidebar">
+        <div class="profile">
+            <div class="profile-pic"></div>
+            <span>{{ user.username }}</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Dashboard</a></li>
+                <li><a href="#">Amigos</a></li>
+                <li><a href="{% url 'cronometro' %}">Metas</a></li>
+                <li><a href="{% url 'ranking' %}">Ranking</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="ranking-container">
+        <div class="ranking-list">
+            <div class="rank-item second">
+                <div class="star">2</div>
+                <div class="rank-bar">
+                    <span>amigo 1</span>
+                </div>
+            </div>
+
+            <div class="rank-item first">
+                <div class="star">1</div>
+                <div class="rank-bar">
+                    <span>{{ user.username }}</span>
+                </div>
+            </div>
+
+            <div class="rank-item third">
+                <div class="star">3</div>
+                <div class="rank-bar">
+                    <span>amigo 2</span>
+                </div>
+            </div>
+        </div>
+
+        <a href="{% url 'index' %}"><button class="back-button">voltar</button></a>
+    </div>
+</div>
+{% endblock content %}
