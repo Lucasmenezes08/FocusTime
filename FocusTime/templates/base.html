@@ -1,0 +1,10 @@
+<p>
+    <a href="{% url 'index' %}">core</a>
+    {% if user.is_authenticated %}
+        Olá, {{ user.username }}
+    {% else %}
+        <a href="{% url 'login' %}">entrar</a>
+    {% endif %}
+</p>
+
+{% block content%}{% endblock content %}

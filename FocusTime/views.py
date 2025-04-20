@@ -61,7 +61,7 @@ def cadastro(request):
     return render(request, "cadastro.html")
 
 
-# Página do cronômetro
+
 def cronometro(request):
     materias = Materia.objects.all()
     metas = Meta.objects.all()
@@ -84,6 +84,6 @@ def tela_cadastro(request):
 
         User.objects.create_user(username=username, password=password)
         messages.success(request, 'Usuário cadastrado com sucesso!')
-        return redirect('index')  # ou redirecione para uma página de login futuramente
+        return redirect('index')  
 
     return render(request, "tela_cadastro.html")
