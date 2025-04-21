@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FocusTime</title>
+    <link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">
     <link rel="stylesheet" href="{% static 'tela_cadastro.css' %}">
 </head>
 <body>
@@ -46,7 +47,7 @@
             </form>
             <section class="login">
                 <p>Já possui cadastro? </p>
-                <button class="btn-login">Clique aqui!</button>
+                <a href="{% url 'login' %}" class="btn-login">Clique aqui!</a>
             </section>
         </section>
     </section>
