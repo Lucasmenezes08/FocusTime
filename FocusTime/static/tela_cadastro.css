@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: serif;
 }
 
 
@@ -15,15 +16,21 @@ body {
 
 .content-right {
     width: 45vw;
-    height: 90vh;
+    height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: end;
     flex-direction: column;
+    background : linear-gradient(90deg, rgb(169, 168, 168) , rgb(170, 166, 166));
 }
 
 .content-right img {
     width: 32rem;
     height: 30rem;
+}
+
+.content-right h1 {
+    font-size: 1.42rem;
+    margin-right: 1rem;
 }
 
 .content-left {
@@ -33,6 +40,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    background : linear-gradient(90deg, rgb(169, 168, 168) , rgb(170, 166, 166));
 }
 
 form {
@@ -54,6 +62,10 @@ form h2 {
     font-size: 2.1rem;
 }
 
+form label {
+    margin-bottom: 0.1rem;
+}
+
 .container-usuario {
     width: 100%;
     display: flex;
@@ -73,6 +85,12 @@ form h2 {
 
 }
 
+.container-usuario input:hover::placeholder{
+    color:transparent;
+    transition: 1s ease-in-out;
+}
+
+
 .container-senha {
     width: 100%;
     display: flex;
@@ -91,12 +109,52 @@ form h2 {
     box-sizing: border-box;
 }
 
+.container-senha input:hover::placeholder{
+    color:transparent;
+    transition: 1s ease-in-out;
+}
+
 .btn-show-senha {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: start;
+    margin-bottom: 2rem;
 }
+
+form button {
+    padding: 0.8rem;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+
+}
+form button:hover {
+    transition-timing-function: ease-in-out;
+    background-color: #7c7878;
+}
+
+
+.login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-login {
+    margin-left: 0.6rem;
+    padding: 0.4rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #9a9494;
+}
+
+
+
+
+
 
 .messages {
     list-style-type: none;
