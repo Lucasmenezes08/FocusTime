@@ -11,22 +11,23 @@
     <title>FocusTime</title>
 </head>
 <body>
-    {% if user.is_authenticated %}
-    <p>Olá, {{ user.username }}!</p>
-        <a href="{% url 'logout' %}">Sair</a>
-    {% else %}
-        <a href="{% url 'login' %}">Entrar</a>
-    {% endif %}
 
     <div class="menuprincipal">
         <div class="sidebar">
             <div class="usericon">U</div>
-            <h2>user</h2>
+            <h2> {{ user.username }} </h2>
             <ul>
                 <li><a href="#">Dashboard</a></li>
                 <li><a href="#">Amigos</a></li>
                 <li><a href="{% url 'cronometro' %}">Metas</a></li>
                 <li><a href="{% url 'cadastro_materia' %}">Adicionar materia</a></li>
+                <li> 
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}">Sair</a>
+                    {% else %}
+                        <a href="{% url 'login' %}">Entrar</a>
+                    {% endif %}
+                </li>
             </ul>
         </div>
 
