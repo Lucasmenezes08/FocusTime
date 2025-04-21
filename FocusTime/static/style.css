@@ -82,24 +82,25 @@ body {
 
 
 .content {
-    width: 100%;
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
+    padding: 20px;
 }
 
 .materia_cadastrada {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .container_materia-wrapper {
     display: grid;
-    grid-template-columns: repeat(3 , 1fr);
-    row-gap: 3rem;
-    column-gap: 12rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    width: 100%;
 }
 
 .materia-wrapper {
@@ -147,11 +148,7 @@ body {
     border: none;
     background-color: rgb(217, 220, 224);
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 
 
