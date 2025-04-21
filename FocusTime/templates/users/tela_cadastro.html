@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'tela_cadastro.css' %}">
 </head>
 <body>
+    {% block content %}
     <section class="content">
         <section class="content-right">
             <h1>Otimize seu tempo com <span>Focus Time!</span></h1>
@@ -18,7 +18,7 @@
             <form action="{% url 'cadastro' %}" method="POST">
                 {% csrf_token %}
                 <h2>Cadastro</h2>
-                <!-- Exibindo mensagens de feedback (sucesso ou erro) -->
+               
                 {% if messages %}
                     <ul class="messages">
                         {% for message in messages %}
@@ -50,9 +50,9 @@
             </section>
         </section>
     </section>
+    {% endblock %}
 
     <script>
-        
         document.getElementById('show-senha').addEventListener('change', function() {
             const passwordInput = document.getElementById('senha');
             passwordInput.type = this.checked ? 'text' : 'password';

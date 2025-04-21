@@ -1,6 +1,10 @@
 from django.urls import path
-from django.contrib.auth import views as auth_views
+from users.views import loginView, logoutView
+from FocusTime.views import tela_cadastro
 
 urlpatterns = [
-    path('login', auth_views.LoginView.as_view(template_name= 'users/login.html'), name= 'login')
+    path("login/", loginView, name = "login"),
+    path('logout/', logoutView, name='logout'),
+    path('cadastro/', tela_cadastro, name='cadastro'),
+
 ]

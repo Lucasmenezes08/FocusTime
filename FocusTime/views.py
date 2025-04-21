@@ -3,14 +3,16 @@ from django.shortcuts import render, redirect
 from .models import Materia, Meta
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
-# Página inicial
+@login_required(login_url='login')
 def index(request):
     materias = Materia.objects.all()
     return render(request, "index.html", {"materias": materias})
 
 
-# Cadastro de matérias e metas
+
 def cadastro(request):
     if request.method == 'POST':
         nome_materia = request.POST.get('nome-materia')
@@ -72,7 +74,7 @@ def cronometro(request):
     return render(request, "cronometro.html", contexto)
 
 
-# Cadastro de usuários
+
 def tela_cadastro(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -82,11 +84,16 @@ def tela_cadastro(request):
             messages.error(request, 'Usuário já existe!')
             return redirect('cadastro')
 
-        User.objects.create_user(username=username, password=password)
-        messages.success(request, 'Usuário cadastrado com sucesso!')
-        return redirect('index')  
+        user = User.objects.create_user(username=username, password=password)
+        user.save()
 
-    return render(request, "tela_cadastro.html")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'Usuário cadastrado e logado com sucesso!')
+            return redirect('index') 
+
+    return render(request, "users/tela_cadastro.html")
 
 def ranking(request):
     return render(request, "ranking.html")

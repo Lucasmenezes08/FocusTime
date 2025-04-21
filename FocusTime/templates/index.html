@@ -11,6 +11,13 @@
     <title>FocusTime</title>
 </head>
 <body>
+    {% if user.is_authenticated %}
+    <p>Olá, {{ user.username }}!</p>
+        <a href="{% url 'logout' %}">Sair</a>
+    {% else %}
+        <a href="{% url 'login' %}">Entrar</a>
+    {% endif %}
+
     <div class="menuprincipal">
         <div class="sidebar">
             <div class="usericon">U</div>
