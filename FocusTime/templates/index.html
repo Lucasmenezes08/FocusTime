@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "style.css" %}">
+    <link rel="stylesheet" href="{% static "modal-materia.css" %}">
     <link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">
     <title>FocusTime</title>
 </head>
@@ -48,9 +49,47 @@
                 </div>
             </div>
             {% endif %}
+
+            <div class="modals">
+                {% if materias %}
+                    {% for materia in materias %}
+                    <div class="modal" id="modal-{{ materia.id }}">
+                        <div class="modal-content">
+                            <div class="materia-nome">
+                                <h2>{{materia.nome_materia}}</h2>
+                                <button class="btn-close-modal" data-id="{{ materia.id }}">X</button>
+                            </div>
+        
+                            <div class="content">
+                                <div class="left-container">
+                                    <button class="btn-edit">Editar</button>
+                                    <button class="btn-delete">Deletar</button>
+                                </div>
+        
+                                <div class="right-container">
+                                    <p>Tempo estipulado: </p>
+                                    <div class="Tempo">
+                                        <span class="horas">{{materia.horas}}</span>
+                                        <span class="ponto">:</span>
+                                        <span class="minutos">{{materia.minutos}}</span>
+                                        <span class="ponto">:</span>
+                                        <span class="segundos">{{materia.segundos}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
         </div>
 
+       
     </div>
+
+
+    <script src="{% static '/modal.mat' %}"></script>
 
 </body>
 </html>

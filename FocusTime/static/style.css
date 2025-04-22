@@ -89,6 +89,7 @@ body {
     align-items: center;
     overflow-y: auto;
     padding: 20px;
+    margin-top: 3rem;
 }
 
 .materia_cadastrada {
