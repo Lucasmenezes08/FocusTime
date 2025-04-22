@@ -40,10 +40,9 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background : linear-gradient(90deg, rgb(169, 168, 168) , rgb(170, 166, 166));
 }
 
-form {
+.form-cadastro {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,15 +53,16 @@ form {
     border-radius: 20px;
     box-shadow: 0px 5px 10px rgb(35, 33, 33) ;
     padding: 2rem;
+    margin-top: 5rem;
 }
 
-form h2 {
+.form-cadastro h2 {
     margin-top: -2rem;
     margin-bottom: 2rem;
     font-size: 2.1rem;
 }
 
-form label {
+.form-cadastro label {
     margin-bottom: 0.1rem;
 }
 
@@ -122,24 +122,106 @@ form label {
     margin-bottom: 2rem;
 }
 
-form button {
-    padding: 0.8rem;
-    border-radius: 15px;
-    border: none;
-    cursor: pointer;
-
-}
-form button:hover {
-    transition-timing-function: ease-in-out;
-    background-color: #7c7878;
-}
-
 
 .login {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.login a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+}
+
+.form-cadastro button {
+    padding: 0.8rem;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+
+}
+.form-cadastro button:hover {
+    transition-timing-function: ease-in-out;
+    background-color: #7c7878;
+}
+
+
+.login-main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+    width: 40%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+.container h2 {
+    margin-bottom: -4rem;
+    font-size: 2rem;
+}
+
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #9A9A9A;
+    width: 60%;
+    height: 80%;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px rgb(35, 33, 33) ;
+    padding: 3rem;
+    margin-top: 5rem;
+}
+
+
+.form-login label {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.form-login input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+.form-login button {
+    margin-left: 0.6rem;
+    padding: 1rem 2.7rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #cac5c5;
+    margin-top: 1rem;
+}
+
+.n-conta a {
+    text-decoration: none;
+    background-color: #7c7878;
+    color: white;
+    cursor: pointer;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
 }
 
 .btn-login {
