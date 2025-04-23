@@ -14,6 +14,10 @@
 </head>
 
 <body>
+    <div class="btn-dia-d">
+        <a href="{% url 'dia-d' %}">Dia-D</a>
+    </div>
+
     {% block content %}
     <div class="menuprincipal">
         <div class="sidebar">
@@ -37,7 +41,6 @@
         </div>
     
         <div class="content">
-
             {% if materias %}
             <div class="materia_cadastrada">
                 <div class="container_materia-wrapper">

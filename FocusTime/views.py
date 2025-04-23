@@ -101,3 +101,7 @@ def tela_cadastro(request):
 def ranking(request):
     return render(request, "ranking.html")
 
+
+@login_required(login_url='login')
+def dia_d (request):
+    return render(request , "dia_d.html")    
