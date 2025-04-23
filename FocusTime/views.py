@@ -8,11 +8,11 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='login')
 def index(request):
-    materias = Materia.objects.all()
+    materias = Materia.objects.filter(user=request.user)
     return render(request, "index.html", {"materias": materias})
 
 
-
+@login_required(login_url='login')
 def cadastro(request):
     if request.method == 'POST':
         nome_materia = request.POST.get('nome-materia')
@@ -43,12 +43,14 @@ def cadastro(request):
 
         if nome_materia and horas and minutos and segundos and nome_meta and horas_meta and minutos_meta and segundos_meta:
             materia = Materia(
+                user=request.user,
                 nome_materia=nome_materia,
                 horas=horas,
                 minutos=minutos,
                 segundos=segundos,
             )
             meta = Meta(
+                user=request.user,
                 nome_metas=nome_meta,
                 horas_meta=horas_meta,
                 minutos_meta=minutos_meta,
@@ -63,10 +65,10 @@ def cadastro(request):
     return render(request, "cadastro.html")
 
 
-
+@login_required(login_url='login')
 def cronometro(request):
-    materias = Materia.objects.all()
-    metas = Meta.objects.all()
+    materias = Materia.objects.filter(user=request.user)
+    metas = Meta.objects.filter(user=request.user)
     contexto = {
         "materias": materias,
         "metas": metas
@@ -95,6 +97,7 @@ def tela_cadastro(request):
 
     return render(request, "users/tela_cadastro.html")
 
+@login_required(login_url='login')
 def ranking(request):
     return render(request, "ranking.html")
 
