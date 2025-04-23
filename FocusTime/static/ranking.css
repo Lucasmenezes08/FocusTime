@@ -15,39 +15,6 @@ body {
     min-height: 100vh;
 }
 
-.sidebar {
-    width: 200px;
-    background-color: #d3d3d3;
-    padding: 20px;
-}
-
-.profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.profile-pic {
-    width: 80px;
-    height: 80px;
-    background-color: white;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-.sidebar nav ul {
-    list-style: none;
-}
-
-.sidebar nav ul li {
-    margin-bottom: 15px;
-}
-
-.sidebar nav ul li a {
-    text-decoration: none;
-    color: #333;
-}
 
 .ranking-container {
     flex: 1;

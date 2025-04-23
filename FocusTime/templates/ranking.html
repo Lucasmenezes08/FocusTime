@@ -1,51 +1,61 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %} 
 {% load static %}
 
-{% block content %}
-<link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">
-<link rel="stylesheet" href="{% static 'ranking.css' %}">
 
-<div class="container">
+<link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'ranking.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="menuprincipal">
     <div class="sidebar">
-        <div class="profile">
-            <div class="profile-pic"></div>
-            <span>{{ user.username }}</span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="{% url 'index' %}">Dashboard</a></li>
-                <li><a href="#">Amigos</a></li>
-                <li><a href="{% url 'cronometro' %}">Metas</a></li>
-                <li><a href="{% url 'ranking' %}">Ranking</a></li>
-            </ul>
-        </nav>
+        <div class="usericon">U</div>
+        <h2 class="user-name"> {{ user.username }} </h2>
+        <ul>
+            <li><a href="{% url 'index' %}">Dashboard</a></li>
+            <li><a href="#">Amigos</a></li>
+            <li><a href="{% url 'cronometro' %}">Metas</a></li>
+            <li><a href="{% url 'cadastro_materia' %}">Adicionar materia</a></li>
+            <li><a href="{% url 'ranking' %}">Ranking</a></li>
+            <li> 
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Sair</a>
+                {% else %}
+                <a href="{% url 'login' %}">Entrar</a>
+                {% endif %}
+            </li>
+        </ul>
     </div>
 
-    <div class="ranking-container">
-        <div class="ranking-list">
-            <div class="rank-item second">
-                <div class="star">2</div>
-                <div class="rank-bar">
-                    <span>amigo 1</span>
+    <div class="content">
+        <div class="ranking-container">
+            <div class="ranking-list">
+                <div class="rank-item second">
+                    <div class="star">2</div>
+                    <div class="rank-bar">
+                        <span>amigo 1</span>
+                    </div>
+                </div>
+
+                <div class="rank-item first">
+                    <div class="star">1</div>
+                    <div class="rank-bar">
+                        <span>{{ user.username }}</span>
+                    </div>
+                </div>
+
+                <div class="rank-item third">
+                    <div class="star">3</div>
+                    <div class="rank-bar">
+                        <span>amigo 2</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="rank-item first">
-                <div class="star">1</div>
-                <div class="rank-bar">
-                    <span>{{ user.username }}</span>
-                </div>
-            </div>
-
-            <div class="rank-item third">
-                <div class="star">3</div>
-                <div class="rank-bar">
-                    <span>amigo 2</span>
-                </div>
-            </div>
+            <a href="{% url 'index' %}"><button class="back-button">voltar</button></a>
         </div>
-
-        <a href="{% url 'index' %}"><button class="back-button">voltar</button></a>
     </div>
 </div>
 {% endblock content %}

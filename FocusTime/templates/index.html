@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="{% static "style.css" %}">
     <link rel="stylesheet" href="{% static "modal-materia.css" %}">
     <link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">
+    {% block extra_css %}{% endblock %}
     <title>FocusTime</title>
 </head>
-<body>
 
+<body>
+    {% block content %}
     <div class="menuprincipal">
         <div class="sidebar">
             <div class="usericon">U</div>
@@ -33,7 +35,7 @@
 
             </ul>
         </div>
-
+    
         <div class="content">
 
             {% if materias %}
@@ -85,11 +87,9 @@
                         {% endfor %}
                     {% endif %}
                 </div>
+            </div>
         </div>
-
-       
-    </div>
-
+    {% endblock content %}
 
     <script src="{% static '/modal.mat' %}"></script>
 
