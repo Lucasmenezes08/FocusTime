@@ -37,7 +37,7 @@ body {
 .sidebar {
     margin-top: -3.8rem;
     width: 200px; 
-    height: 100%;
+    min-height: 100vh;
     padding: 40px;
     display: flex;
     background-color: #b4b4b4;
@@ -46,6 +46,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    position: fixed;
 }
 .usericon {
     width: 100px;
@@ -96,6 +97,7 @@ body {
 
 .user-name {
     font-weight: 600;
+    margin-bottom: -1rem;
 }
 
 .content {
