@@ -35,7 +35,7 @@
         </div>
 
 
-        <section class="container-principal">
+        <section class="container-principal" >
             <section class="content-day">
                 <section class="lembretes">
                     <h2>Lembretes:</h2>
@@ -46,7 +46,32 @@
                 </section>
             </section>
         </section>
+
+        <section class="modal-principal" id="modal-principal">
+            {% csrf_token %}
+            <form class="form-dia"id=form-dia method="POST">
+                <section class="titulo-form">
+                    <h2>Lembretes: </h2>
+                </section>
+                <section class="box-content">
+                    <section class="box-nome">
+                        <label for="nome-day">Nome:</label>
+                        <input type="text" name="nome-day" id="nome-day" class="nome-day" placeholder="Insira um nome para data alvo" maxlength="20" required>
+                    </section>
+
+                    <section class="box-data">
+                        <label for="data-day">Data:</label>
+                        <input type="date" id="data-day" required>
+                    </section>
+                <button type="submit" class="btn-d-submit">finalizar</button>
+                </section>
+            </form>
+        </section>
+               
+        <script src="{% static '/dia-d.js' %}"></script>
         {% endblock content %}
+    </div>
+       
 
 </body>
 </html>
