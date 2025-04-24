@@ -50,7 +50,7 @@
                             <h2>{{materia.nome_materia}}</h2>
                             <p> <span>TEMPO: </span>{{materia.horas}}:{{materia.minutos}}:{{materia.segundos}}</p>
                         </div>
-                        <button class="btn-consultar-materia" type="button">+</button>
+                        <button class="btn-consultar-materia" data-id="{{ materia.id }}" type="button">+</button>
                     </div>
                {% endfor %}
                 </div>
@@ -92,9 +92,10 @@
                 </div>
             </div>
         </div>
+        
     {% endblock content %}
+    <script src="{% static 'modal-mat.js' %}"></script>
 
-    <script src="{% static '/modal.mat' %}"></script>
 
 </body>
 </html>
