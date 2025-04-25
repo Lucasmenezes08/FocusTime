@@ -56,7 +56,9 @@
 .content-lembretes  {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin-top: 2.1rem;
+    margin-left: 1rem;
 }
 
 .modal-principal {
