@@ -22,10 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!nome || !data) {
             e.preventDefault(); 
-        
-        } else {
-            modal.classList.remove("show");
-            form.reset();
-        }
-    });
+        }
+    });
 });

@@ -42,7 +42,14 @@
                     <button type="button" class="btn-modal-day" id="btn-d-day">+</button>
                 </section>
                 <section class="content-lembretes">
+                {% if lembretes %}
+                    {% for lembrete in lembretes %}
+                     <p>- {{ lembrete.nome }} em {{ lembrete.data }}</p>
+                    {% endfor %}
+                {% else %}
                     <p>- Nenhum lembrete adicionado</p>
+                {% endif %}
+
                 </section>
             </section>
         </section>
@@ -61,7 +68,7 @@
 
                     <section class="box-data">
                         <label for="data-day">Data:</label>
-                        <input type="date" id="data-day" required>
+                        <input type="date" name="data-day" id="data-day" required>
                     </section>
                 <button type="submit" class="btn-d-submit">finalizar</button>
                 </section>
