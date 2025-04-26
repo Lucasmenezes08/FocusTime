@@ -32,29 +32,47 @@
     <div class="content">
         <div class="ranking-container">
             <div class="ranking-list">
-                <div class="rank-item second">
-                    <div class="star">2</div>
-                    <div class="rank-bar">
-                        <span>amigo 1</span>
+                {% with ranking_user|length as total %}
+                    {% if ranking_user|length > 1 %}
+                    <div class="rank-item second">
+                        <div class="star">2</div>
+                        <div class="rank-bar">
+                            <span>{{ ranking_user.1.username }} - {{ ranking_user.1.total_materias }} matérias</span>
+                        </div>
                     </div>
-                </div>
+                    {% endif %}
 
-                <div class="rank-item first">
-                    <div class="star">1</div>
-                    <div class="rank-bar">
-                        <span>{{ user.username }}</span>
+                    {% if ranking_user|length > 0 %}
+                    <div class="rank-item first">
+                        <div class="star">1</div>
+                        <div class="rank-bar">
+                            <span>{{ ranking_user.0.username }} - {{ ranking_user.0.total_materias }} matérias</span>
+                        </div>
                     </div>
-                </div>
+                    {% endif %}
 
-                <div class="rank-item third">
-                    <div class="star">3</div>
-                    <div class="rank-bar">
-                        <span>amigo 2</span>
+                    {% if ranking_user|length > 2 %}
+                    <div class="rank-item third">
+                        <div class="star">3</div>
+                        <div class="rank-bar">
+                            <span>{{ ranking_user.2.username }} - {{ ranking_user.2.total_materias }} matérias</span>
+                        </div>
                     </div>
+                    {% endif %}
                 </div>
-            </div>
+            {% endwith %}
 
             <a href="{% url 'index' %}"><button class="back-button">voltar</button></a>
+            <div class="ranking-restante">
+                <h3>Outros usuários no ranking:</h3>
+                <ol>
+                    {% for user in resto_user %}
+                        <li>{{ forloop.counter0|add:"4" }}º - {{ user.username }} — {{ user.total_materias }} matérias</li>
+                    {% empty %}
+                        <p>Nenhum outro usuário ainda.</p>
+                    {% endfor %}
+                </ol>
+            </div>
         </div>
     </div>
 </div>

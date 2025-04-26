@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count
 
 @login_required(login_url='login')
 def index(request):
@@ -49,6 +50,8 @@ def cadastro(request):
                 minutos=minutos,
                 segundos=segundos,
             )
+            materia.save()
+
             meta = Meta(
                 user=request.user,
                 nome_metas=nome_meta,
@@ -57,7 +60,7 @@ def cadastro(request):
                 segundos_meta=segundos_meta,
             )
             meta.save()
-            materia.save()
+            
             return redirect('index')
         else:
             return render(request, "cadastro.html")
@@ -99,8 +102,18 @@ def tela_cadastro(request):
 
 @login_required(login_url='login')
 def ranking(request):
-    return render(request, "ranking.html")
+    total_user = (
+        User.objects
+        .annotate(total_materias=Count('materia'))
+        .order_by('-total_materias')
+    )
+    ranking_user = total_user[:3]
+    resto_user = total_user[3:]
 
+    return render(request, "ranking.html", {
+        'ranking_user': ranking_user,
+        'resto_user': resto_user
+    })
 
 @login_required(login_url='login')
 def dia_d(request):
