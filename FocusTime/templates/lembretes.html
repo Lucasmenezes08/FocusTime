@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lembretes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lembretes</h1>
+            <a href="/adicionar-lembrete/" class="btn-adicionar">Adicionar Lembrete</a>
+        </header>
+        
+        <main>
+            <div class="lembretes">
+                <h2>Seus Lembretes</h2>
+                <div class="lista-lembretes">
+                    {% if lembretes %}
+                        {% for lembrete in lembretes %}
+                            <div class="lembrete-item">
+                                <h3>{{ lembrete.titulo }}</h3>
+                                <p>{{ lembrete.descricao }}</p>
+                                <small>{{ lembrete.data_criacao }}</small>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>Não há lembretes registrados.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 FocusTime - Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

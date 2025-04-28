@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect
 from .models import Materia, Meta, Lembrete
 from django.contrib.auth.models import User
@@ -13,7 +12,9 @@ def index(request):
     return render(request, "index.html", {"materias": materias})
 
 
+
 @login_required(login_url='login')
+
 def cadastro(request):
     if request.method == 'POST':
         nome_materia = request.POST.get('nome-materia')
@@ -68,6 +69,7 @@ def cadastro(request):
     return render(request, "cadastro.html")
 
 
+
 @login_required(login_url='login')
 def cronometro(request):
     materias = Materia.objects.filter(user=request.user)
@@ -77,7 +79,6 @@ def cronometro(request):
         "metas": metas
     }
     return render(request, "cronometro.html", contexto)
-
 
 
 def tela_cadastro(request):
@@ -98,9 +99,11 @@ def tela_cadastro(request):
             messages.success(request, 'Usuário cadastrado e logado com sucesso!')
             return redirect('index') 
 
+
     return render(request, "users/tela_cadastro.html")
 
 @login_required(login_url='login')
+
 def ranking(request):
     total_user = (
         User.objects
@@ -109,6 +112,7 @@ def ranking(request):
     )
     ranking_user = total_user[:3]
     resto_user = total_user[3:]
+
 
     return render(request, "ranking.html", {
         'ranking_user': ranking_user,
@@ -127,3 +131,23 @@ def dia_d(request):
 
     lembretes = Lembrete.objects.filter(user=request.user).order_by('data')
     return render(request, "dia_d.html", {"lembretes": lembretes})
+
+def lembretes(request):
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        descricao = request.POST.get('descricao')
+        data = request.POST.get('data')
+        hora = request.POST.get('hora')
+
+        if titulo and descricao and data and hora:
+            Lembrete.objects.create(
+                titulo=titulo,
+                descricao=descricao,
+                data=data,
+                hora=hora
+            )
+            return redirect('lembretes')
+
+    lembretes = Lembrete.objects.all()
+    return render(request, 'lembretes.html', {'lembretes': lembretes})
+

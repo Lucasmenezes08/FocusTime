@@ -192,4 +192,135 @@ body {
     }
 }
 
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Estilo geral do corpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0; /* cinza claro */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container central */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+header h1 {
+    color: #333;
+    font-size: 2rem;
+}
+
+header .btn-adicionar {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+header .btn-adicionar:hover {
+    background-color: #555;
+}
+
+/* Estilo para o conteúdo principal */
+main {
+    padding: 10px 20px;
+}
+
+/* Estilo da lista de lembretes */
+.lembretes h2 {
+    font-size: 1.6rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Item de lembrete */
+.lista-lembretes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lembrete-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.lembrete-item h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.lembrete-item p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.lembrete-item small {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+
+    .lembrete-item {
+        padding: 10px;
+    }
+
+    header .btn-adicionar {
+        top: 10px;
+        right: 10px;
+        font-size: 0.9rem;
+    }
+}

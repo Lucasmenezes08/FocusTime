@@ -13,5 +13,6 @@ urlpatterns = [
     path('cronometro/', views.cronometro, name='cronometro'), 
     path("cadastro/", views.tela_cadastro, name = "cadastro_FocusTime"), 
     path('ranking/', views.ranking, name='ranking'), 
-    path('dia-d/', views.dia_d ,name='dia-d')
+    path('dia-d/', views.dia_d ,name='dia-d'),
+    path('lembretes/', views.lembretes, name='lembretes'),  
 ]
