@@ -22,21 +22,21 @@ class Meta(models.Model):
     def _str_(self):
         return self.nome_metas
     
-class Lembrete(models.Model):
+class DataD (models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     nome = models.CharField(max_length=100)
     data = models.DateField()
 
     def _str_(self):
         return f"{self.nome} - {self.data}"
-    def __str__(self):
-        return self.nome_metas
+   
 
 class Lembrete(models.Model):
     titulo = models.CharField(max_length=100)
     descricao = models.TextField()
-    data = models.DateField()
-    hora = models.TimeField()
+    data_lembrete = models.DateField()
+    hora_lembrete = models.TimeField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.titulo
+        return f"{self.titulo} - {self.data_lembrete} {self.hora_lembrete}"

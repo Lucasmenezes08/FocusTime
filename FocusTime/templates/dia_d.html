@@ -38,16 +38,16 @@
         <section class="container-principal" >
             <section class="content-day">
                 <section class="lembretes">
-                    <h2>Lembretes:</h2>
+                    <h2>Datas importantes:</h2>
                     <button type="button" class="btn-modal-day" id="btn-d-day">+</button>
                 </section>
                 <section class="content-lembretes">
-                {% if lembretes %}
-                    {% for lembrete in lembretes %}
-                     <p>- {{ lembrete.nome }} em {{ lembrete.data }}</p>
+                {% if datas %}
+                    {% for data in datas %}
+                     <p>- {{ data.nome }} em {{ data.data }}</p>
                     {% endfor %}
                 {% else %}
-                    <p>- Nenhum lembrete adicionado</p>
+                    <p>- Nenhuma data adicionada</p>
                 {% endif %}
 
                 </section>
@@ -78,7 +78,5 @@
         <script src="{% static '/dia-d.js' %}"></script>
         {% endblock content %}
     </div>
-       
-
 </body>
 </html>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Materia, Meta, Lembrete
+from .models import Materia, Meta, DataD, Lembrete
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -126,28 +126,30 @@ def dia_d(request):
         data = request.POST.get('data-day')
 
         if nome and data:
-            Lembrete.objects.create(user=request.user, nome=nome, data=data)
+            DataD.objects.create(user=request.user, nome=nome, data=data)
             return redirect('dia-d')  
 
-    lembretes = Lembrete.objects.filter(user=request.user).order_by('data')
-    return render(request, "dia_d.html", {"lembretes": lembretes})
+    datas_importantes = DataD.objects.filter(user=request.user).order_by('data')
+    return render(request, "dia_d.html", {"datas": datas_importantes})
 
+@login_required(login_url='login')
 def lembretes(request):
     if request.method == 'POST':
         titulo = request.POST.get('titulo')
         descricao = request.POST.get('descricao')
-        data = request.POST.get('data')
+        data_lembrete = request.POST.get('data')
         hora = request.POST.get('hora')
 
-        if titulo and descricao and data and hora:
+        if titulo and descricao and data_lembrete and hora:
             Lembrete.objects.create(
                 titulo=titulo,
                 descricao=descricao,
-                data=data,
-                hora=hora
+                data_lembrete=data_lembrete,
+                hora=hora,
+                user=request.user
             )
             return redirect('lembretes')
 
-    lembretes = Lembrete.objects.all()
+    lembretes = Lembrete.objects.filter(user=request.user).order_by('data', 'hora')
     return render(request, 'lembretes.html', {'lembretes': lembretes})
 
