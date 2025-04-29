@@ -1,0 +1,23 @@
+{
+  "name": "focustime",
+  "version": "1.0.0",
+  "description": "**Focustime** é um aplicativo projetado para ajudar você a contabilizar e organizar seu tempo de estudo de forma eficiente. Com funcionalidades como timer em tempo real, compartilhamento de progresso, metas personalizáveis e um ranking geral, o Focustime é a ferramenta ideal para estudantes que desejam maximalizar sua produtividade.\r ---\r ## Índice\r -[Funcionalidades](#funcionalidades)  \r -[Instalação](#Instalação)  \r -[Uso](#Uso)  \r -[contribuição](#Contribuição)  \r -[Licença](#Licença)  \r -[Tecnologias](#Tecnologias)  \r ---\r ## Funcionalidades ⚙️\r - **Timer em tempo real**: Acompanhe seu tempo de estudo com um cronômetro a qualquer momento.\r - **Compartilhamento de Progresso**: Compartilhe seu progresso com amigos e mantenha-se motivado.\r - **Metas Personalizáveis**: Estipule metas de estudo e acompanhe seu desempenho.\r - **Ranking Geral**: Veja como você está se saindo em relação a outros usuários.\r - **Cadastro de Matérias**: Organize suas sessões de estudo por matérias.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brendalu2005/FocusTime.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brendalu2005/FocusTime/issues"
+  },
+  "homepage": "https://github.com/Brendalu2005/FocusTime#readme",
+  "devDependencies": {
+    "cypress": "^14.3.2"
+  }
+}
