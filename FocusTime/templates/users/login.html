@@ -1,0 +1,39 @@
+{% extends "users/tela_cadastro.html" %}
+{% load static %}
+
+{% block content %}
+    <link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">    
+
+<body>
+    <main class="login-main">
+        <div class="container">
+            <h2>Login</h2>
+            
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <p class="{{ message.tags }}">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+            <form  class="form-login"method="POST" class="container-login">
+                {% csrf_token %}
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" placeholder="Nome de usuário" required autocomplete="username">
+    
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" placeholder="Senha" required autocomplete="current-password">
+    
+                <button type="submit">Entrar</button>
+            </form>
+            <div class="n-conta">
+                <p>Não tem uma conta? <a href="{% url 'cadastro_FocusTime' %}">Cadastre-se</a></p>
+            </div>
+            
+        </div>
+    </main>
+</body>
+    
+{% endblock  %}
+

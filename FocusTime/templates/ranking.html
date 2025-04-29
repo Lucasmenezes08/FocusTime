@@ -1,0 +1,80 @@
+{% extends 'index.html' %} 
+{% load static %}
+
+
+<link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'ranking.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="menuprincipal">
+    <div class="sidebar">
+        <div class="usericon">U</div>
+        <h2 class="user-name"> {{ user.username }} </h2>
+        <ul>
+            <li><a href="{% url 'index' %}">Dashboard</a></li>
+            <li><a href="#">Amigos</a></li>
+            <li><a href="{% url 'lembretes' %}">Lembretes</a></li>
+            <li><a href="{% url 'cronometro' %}">Metas</a></li>
+            <li><a href="{% url 'cadastro_materia' %}">Adicionar materia</a></li>
+            <li><a href="{% url 'ranking' %}">Ranking</a></li>
+            <li> 
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Sair</a>
+                {% else %}
+                <a href="{% url 'login' %}">Entrar</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="ranking-container">
+            <div class="ranking-list">
+                {% with ranking_user|length as total %}
+                    {% if ranking_user|length > 1 %}
+                    <div class="rank-item second">
+                        <div class="star">2</div>
+                        <div class="rank-bar">
+                            <span>{{ ranking_user.1.username }} - {{ ranking_user.1.total_materias }} matérias</span>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if ranking_user|length > 0 %}
+                    <div class="rank-item first">
+                        <div class="star">1</div>
+                        <div class="rank-bar">
+                            <span>{{ ranking_user.0.username }} - {{ ranking_user.0.total_materias }} matérias</span>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if ranking_user|length > 2 %}
+                    <div class="rank-item third">
+                        <div class="star">3</div>
+                        <div class="rank-bar">
+                            <span>{{ ranking_user.2.username }} - {{ ranking_user.2.total_materias }} matérias</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            {% endwith %}
+
+            <a href="{% url 'index' %}"><button class="back-button">voltar</button></a>
+            <div class="ranking-restante">
+                <h3>Outros usuários no ranking:</h3>
+                <ol>
+                    {% for user in resto_user %}
+                        <li>{{ forloop.counter0|add:"4" }}º - {{ user.username }} — {{ user.total_materias }} matérias</li>
+                    {% empty %}
+                        <p>Nenhum outro usuário ainda.</p>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

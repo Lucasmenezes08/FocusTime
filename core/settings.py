@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'FocusTime.apps.FocusTimeConfig',
+    'users',
     'whitenoise.runserver_nostatic',
 ]
 

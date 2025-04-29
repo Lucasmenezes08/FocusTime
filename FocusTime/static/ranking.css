@@ -1,0 +1,65 @@
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+.ranking-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+.ranking-list {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.rank-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.star {
+    width: 40px;
+    height: 40px;
+    background-color: #d3d3d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.rank-bar {
+    width: 100px;
+    background-color: #d3d3d3;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.first .rank-bar {
+    height: 300px;
+}
+
+.second .rank-bar {
+    height: 250px;
+}
+
+.third .rank-bar {
+    height: 200px;
+}
+
+.back-button {
+    padding: 10px 30px;
+    background-color: #d3d3d3;
+    border: none;
+    cursor: pointer;
+}

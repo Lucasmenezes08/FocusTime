@@ -7,41 +7,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "style.css" %}">
+    <link rel="stylesheet" href="{% static "modal-materia.css" %}">
     <link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">
+    {% block extra_css %}{% endblock %}
     <title>FocusTime</title>
 </head>
+
 <body>
+    <div class="btn-dia-d">
+        <a href="{% url 'dia-d' %}">Dia-D</a>
+    </div>
+
+    {% block content %}
     <div class="menuprincipal">
         <div class="sidebar">
             <div class="usericon">U</div>
-            <h2>user</h2>
+            <h2 class="user-name"> {{ user.username }} </h2>
             <ul>
                 <li><a href="#">Dashboard</a></li>
                 <li><a href="#">Amigos</a></li>
+                <li><a href="{% url 'lembretes' %}">Lembretes</a></li>
                 <li><a href="{% url 'cronometro' %}">Metas</a></li>
                 <li><a href="{% url 'cadastro_materia' %}">Adicionar materia</a></li>
+                <li><a href="{% url 'ranking' %}">Ranking</a></li>
+                <li> 
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}">Sair</a>
+                    {% else %}
+                        <a href="{% url 'login' %}">Entrar</a>
+                    {% endif %}
+                </li>
+
             </ul>
         </div>
-
+    
         <div class="content">
-            <h1>Dashboard</h1>
-
             {% if materias %}
             <div class="materia_cadastrada">
                 <div class="container_materia-wrapper">
                 {% for materia in materias %}
-                    <div class="container_materia">
-                       <h2>{{materia.nome_materia}}</h2>
-                        <p> <span>TEMPO: </span>{{materia.horas}}:{{materia.minutos}}:{{materia.segundos}}</p>
-                
+                    <div class="materia-wrapper">
+                        <div class="container_materia">
+                            <h2>{{materia.nome_materia}}</h2>
+                            <p> <span>TEMPO: </span>{{materia.horas}}:{{materia.minutos}}:{{materia.segundos}}</p>
+                        </div>
+                        <button class="btn-consultar-materia" data-id="{{ materia.id }}" type="button">+</button>
                     </div>
-                {% endfor %}
+               {% endfor %}
                 </div>
             </div>
             {% endif %}
-        </div>
 
-    </div>
+            <div class="modals">
+                {% if materias %}
+                    {% for materia in materias %}
+                    <div class="modal" id="modal-{{ materia.id }}">
+                        <div class="modal-content">
+                            <div class="materia-nome">
+                                <h2>{{materia.nome_materia}}</h2>
+                                <button class="btn-close-modal" data-id="{{ materia.id }}">X</button>
+                            </div>
+        
+                            <div class="content">
+                                <div class="left-container">
+                                    <button class="btn-edit">Editar</button>
+                                    <button class="btn-delete">Deletar</button>
+                                </div>
+        
+                                <div class="right-container">
+                                    <p>Tempo estipulado: </p>
+                                    <div class="Tempo">
+                                        <span class="horas">{{materia.horas}}</span>
+                                        <span class="ponto">:</span>
+                                        <span class="minutos">{{materia.minutos}}</span>
+                                        <span class="ponto">:</span>
+                                        <span class="segundos">{{materia.segundos}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-secundario" id="modal-editar-{{ materia.id }}">
+                                <div class="modal-content">
+                                    <h2>Editar Matéria: {{ materia.nome_materia }}</h2>
+                                    <form method="POST" action="">
+
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        </div>
+
+
+                        
+                    </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+    {% endblock content %}
+    <script src="{% static 'modal-mat.js' %}"></script>
+
 
 </body>
 </html>

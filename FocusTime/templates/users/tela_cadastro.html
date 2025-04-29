@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusTime</title>
+    <link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">
+    <link rel="stylesheet" href="{% static 'tela_cadastro.css' %}">
+</head>
+<body>
+    {% block content %}
+    <section class="content">
+        <section class="content-right">
+            <h1>Otimize seu tempo com <span>Focus Time!</span></h1>
+            <img src="{% static 'img/estudo.png' %}" alt="Imagem Estudo">
+        </section>
+        <section class="content-left">
+            <form class="form-cadastro"action="{% url 'cadastro' %}" method="POST">
+                {% csrf_token %}
+                <h2>Cadastro</h2>
+               
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li class="{{ message.tags }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                <section class="container-usuario">
+                    <label for="usuario">Nome de usuário:</label>
+                    <input type="text" name="username" id="usuario" placeholder="Nome de usuário" maxlength="20" minlength="4" required>
+                </section>
+
+                <section class="container-senha">
+                    <label for="senha">Senha:</label>
+                    <input type="password" name="password" id="senha" placeholder="Digite sua senha" maxlength="20" minlength="8" required>
+                </section>
+
+                <section class="btn-show-senha">
+                    <label for="show-senha">Mostrar senha?</label>
+                    <input type="checkbox" id="show-senha">
+                </section>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+            <section class="login">
+                <p>Já possui cadastro? </p>
+                <a href="{% url 'login' %}" class="btn-login">Clique aqui!</a>
+            </section>
+        </section>
+    </section>
+    {% endblock %}
+
+    <script>
+        document.getElementById('show-senha').addEventListener('change', function() {
+            const passwordInput = document.getElementById('senha');
+            passwordInput.type = this.checked ? 'text' : 'password';
+        });
+    </script>
+</body>
+</html>

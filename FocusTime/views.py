@@ -1,15 +1,21 @@
 from django.shortcuts import render, redirect
-from .models import Materia
-from .models import Meta
+from .models import Materia, Meta, DataD, Lembrete
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.db.models import Count
 
-# Create your views here.
-
-def index (request):
-    materias = Materia.objects.all()
+@login_required(login_url='login')
+def index(request):
+    materias = Materia.objects.filter(user=request.user)
     return render(request, "index.html", {"materias": materias})
 
 
-def cadastro (request):
+
+@login_required(login_url='login')
+
+def cadastro(request):
     if request.method == 'POST':
         nome_materia = request.POST.get('nome-materia')
         horas1 = request.POST.get('horas')
@@ -17,7 +23,7 @@ def cadastro (request):
         horas = str(horas1) + str(horas2) if horas1 and horas2 else '00'
 
         minutos1 = request.POST.get('minutos')
-        minutos2= request.POST.get('minutos2')
+        minutos2 = request.POST.get('minutos2')
         minutos = str(minutos1) + str(minutos2) if minutos1 and minutos2 else '00'
 
         segundos1 = request.POST.get('segundos')
@@ -39,34 +45,111 @@ def cadastro (request):
 
         if nome_materia and horas and minutos and segundos and nome_meta and horas_meta and minutos_meta and segundos_meta:
             materia = Materia(
+                user=request.user,
                 nome_materia=nome_materia,
                 horas=horas,
                 minutos=minutos,
                 segundos=segundos,
             )
+            materia.save()
+
             meta = Meta(
+                user=request.user,
                 nome_metas=nome_meta,
                 horas_meta=horas_meta,
                 minutos_meta=minutos_meta,
                 segundos_meta=segundos_meta,
             )
             meta.save()
-            materia.save()
+            
             return redirect('index')
         else:
-
             return render(request, "cadastro.html")
-        
-    
-    return render (request ,"cadastro.html")
+
+    return render(request, "cadastro.html")
 
 
-def cronometro (request):
-    materias = Materia.objects.all()
-    metas = Meta.objects.all()
+
+@login_required(login_url='login')
+def cronometro(request):
+    materias = Materia.objects.filter(user=request.user)
+    metas = Meta.objects.filter(user=request.user)
     contexto = {
         "materias": materias,
         "metas": metas
     }
-    return render (request,"cronometro.html" , contexto)
+    return render(request, "cronometro.html", contexto)
+
+
+def tela_cadastro(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        if User.objects.filter(username=username).exists():
+            messages.error(request, 'Usuário já existe!')
+            return redirect('cadastro')
+
+        user = User.objects.create_user(username=username, password=password)
+        user.save()
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'Usuário cadastrado e logado com sucesso!')
+            return redirect('index') 
+
+
+    return render(request, "users/tela_cadastro.html")
+
+@login_required(login_url='login')
+
+def ranking(request):
+    total_user = (
+        User.objects
+        .annotate(total_materias=Count('materia'))
+        .order_by('-total_materias')
+    )
+    ranking_user = total_user[:3]
+    resto_user = total_user[3:]
+
+
+    return render(request, "ranking.html", {
+        'ranking_user': ranking_user,
+        'resto_user': resto_user
+    })
+
+@login_required(login_url='login')
+def dia_d(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome-day')
+        data = request.POST.get('data-day')
+
+        if nome and data:
+            DataD.objects.create(user=request.user, nome=nome, data=data)
+            return redirect('dia-d')  
+
+    datas_importantes = DataD.objects.filter(user=request.user).order_by('data')
+    return render(request, "dia_d.html", {"datas": datas_importantes})
+
+@login_required(login_url='login')
+def lembretes(request):
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        descricao = request.POST.get('descricao')
+        data = request.POST.get('data')
+        hora = request.POST.get('hora')
+
+        if titulo and descricao and data and hora:
+            Lembrete.objects.create(
+                titulo=titulo,
+                descricao=descricao,
+                data_lembrete=data,
+                hora_lembrete=hora,
+                user=request.user
+            )
+            return redirect('lembretes')
+
+    lembretes = Lembrete.objects.filter(user=request.user).order_by('data_lembrete', 'hora_lembrete')
+    return render(request, 'lembretes.html', {'lembretes': lembretes})
 
