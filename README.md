@@ -70,6 +70,7 @@ O objetivo dessa segunda entrega é o começo da execução prática do projeto.
 - **backlog e quadro do projeto**: [Documento](https://docs.google.com/document/d/1CoXZUGrOC8zCm6xNiq8LR7gmqvhTzZx5oNGm1arXVo8/edit?usp=sharing)
   
 </details>
+
 ---
 
 
