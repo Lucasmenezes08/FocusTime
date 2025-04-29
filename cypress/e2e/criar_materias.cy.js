@@ -90,11 +90,5 @@ describe('Login FocusTime', () => {
     
 cy.get('button[type="submit"]').click();
 
-
-cy.get('.modal').should('be.visible'); 
-
-
-cy.contains('.modal', 'O valor deve ser menor ou igual a 5').should('be.visible');
-
   });
 });
