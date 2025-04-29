@@ -1,6 +1,16 @@
+Cypress.Commands.add('criarUser', () => {
+  cy.visit('http://127.0.0.1:8000/userslogin/');
+  cy.wait(1000);
+  cy.get('a').click();
+  cy.get('#usuario').type('Brenda Luana');
+  cy.get('#senha').type('brenda22');  
+  cy.get('button').click();
+});
+
 describe('Login FocusTime', () => {
     beforeEach(() => {
       Cypress.on('uncaught:exception', () => false);
+      cy.criarUser();
     });
     it('Deve fazer login com dados válidos', () => {
       cy.visit('/userslogin/');
