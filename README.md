@@ -59,7 +59,6 @@ O objetivo dessa segunda entrega é o começo da execução prática do projeto.
 
 </details>
 
----
   
 <details>
 <summary><strong>Links importantes ⚠️</strong></summary>
