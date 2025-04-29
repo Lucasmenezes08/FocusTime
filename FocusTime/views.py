@@ -137,15 +137,15 @@ def lembretes(request):
     if request.method == 'POST':
         titulo = request.POST.get('titulo')
         descricao = request.POST.get('descricao')
-        data_lembrete = request.POST.get('data')
+        data = request.POST.get('data')
         hora = request.POST.get('hora')
 
-        if titulo and descricao and data_lembrete and hora:
+        if titulo and descricao and data and hora:
             Lembrete.objects.create(
                 titulo=titulo,
                 descricao=descricao,
-                data_lembrete=data_lembrete,
-                hora=hora,
+                data_lembrete=data,
+                hora_lembrete=hora,
                 user=request.user
             )
             return redirect('lembretes')

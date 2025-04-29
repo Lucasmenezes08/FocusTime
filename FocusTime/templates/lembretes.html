@@ -38,15 +38,23 @@
                     <button type="button" class="btn-modal-day" id="btn-d-day">+</button>
                 </section>
                 <section class="content-lembretes">
-                {% if datas %}
-                    {% for data in datas %}
-                    <p>- {{ data.nome }} em {{ data.data }}</p>
+                    {% if lembretes %}
+                    {% for lembrete in lembretes %}
+                    <div class="lembrete-item">
+                        <span class="tooltip">
+                            <strong>{{ lembrete.titulo }}</strong>
+                            <span class="tooltip-text">
+                                <p><strong>Data:</strong> {{ lembrete.data_lembrete }}</p>
+                                <p><strong>Hora:</strong> {{ lembrete.hora_lembrete }}</p>
+                                <p><strong>Descrição:</strong> {{ lembrete.descricao }}</p>
+                            </span>
+                        </span>
+                    </div>
                     {% endfor %}
                 {% else %}
                     <p>- Nenhum lembrete adicionado</p>
                 {% endif %}
-
-                </section>
+            </section>
             </section>
         </section>
 
@@ -59,13 +67,23 @@
                 <section class="box-content">
                     <section class="box-nome">
                         <label for="nome-day">Nome:</label>
-                        <input type="text" name="nome-day" id="nome-day" class="nome-day" placeholder="Insira um nome para o lembrete" required>
+                        <input type="text" name="titulo" id="titulo" class="titulo" placeholder="Insira um nome para o lembrete" required>
+                    </section>
+                    <section class="box-descricao">
+                        <label for="descricao">Descrição:</label>
+                        <textarea name="descricao" id="descricao" placeholder="Descrição do lembrete" required></textarea>
                     </section>
 
-                    <section class="box-data">
-                        <label for="data-day">Data:</label>
-                        <input type="date" name="data-day" id="data-day" required>
+                    <section class="box-hora">
+                        <label for="hora">Hora:</label>
+                        <input type="time" name="hora" id="hora" required>
                     </section>
+                
+                    <section class="box-data">
+                        <label for="data">Data:</label>
+                        <input type="date" name="data" id="data" required>
+                    </section>
+
                 <button type="submit" class="btn-d-submit">finalizar</button>
                 </section>
             </form>
