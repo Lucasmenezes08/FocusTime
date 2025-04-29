@@ -173,3 +173,5 @@ cython_debug/
 .pypirc
 
 .vscode
+
+node_modules/
