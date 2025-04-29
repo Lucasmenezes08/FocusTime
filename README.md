@@ -67,11 +67,37 @@ O objetivo dessa segunda entrega é o começo da execução prática do projeto.
 - **youtube**: [apresentação do protótipo - legendado/dublado](https://youtu.be/8OI8J7PQgNk?feature=shared)
 - **site**: [Site do projeto](https://focustime.azurewebsites.net/)
 - **Casos de erro**:[histórias](https://docs.google.com/document/d/1Fll4IUvsdfB777OE4EdtUfXwO-ygG_pBUts8kASELos/edit?usp=sharing)
-- **backlog e quadro do projeto**: [Documento](https://docs.google.com/document/d/1CoXZUGrOC8zCm6xNiq8LR7gmqvhTzZx5oNGm1arXVo8/edit?usp=sharing)
+
   
 </details>
 
 ---
+## Terceira entrega 📄
+adicionar texto
+
+<details>
+<summary><strong>Quadros e backlogs no jira</strong></summary>
+  
+![Print backlog]()
+![Print sprint]() 
+![Print issues]()
+
+</details>
+
+  
+<details>
+<summary><strong>Links importantes ⚠️</strong></summary>
+  
+- **Relatório programação em par**: [relatório programação]()
+- **youtube**: [apresentação do protótipo - legendado/dublado]()
+- **site**: [Site do projeto]()
+- **Casos de erro**:[histórias]()
+
+  
+</details>
+
+---
+
 
 
 ## GRUPO 
