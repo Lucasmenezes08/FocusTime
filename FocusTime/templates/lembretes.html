@@ -1,37 +1,77 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lembretes</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
+{% extends 'index.html' %} 
+{% load static %}
+
+
+<link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'lembrete.css' %}">
+{% endblock %}
+
 <body>
-    <div class="container">
-        <header>
-            <h1>Lembretes</h1>
-            <a href="/adicionar-lembrete/" class="btn-adicionar">Adicionar Lembrete</a>
-        </header>
-        
-        <main>
-            <div class="lembretes">
-                <h2>Seus Lembretes</h2>
-                <div class="lista-lembretes">
-                    {% if lembretes %}
-                        {% for lembrete in lembretes %}
-                            <div class="lembrete-item">
-                                <h3>{{ lembrete.titulo }}</h3>
-                                <p>{{ lembrete.descricao }}</p>
-                                <small>{{ lembrete.data_lembrete}}</small>
-                            </div>
-                        {% endfor %}
+    {% block content %}
+    <div class="menuprincipal">
+        <div class="sidebar">
+            <div class="usericon">U</div>
+            <h2 class="user-name"> {{ user.username }} </h2>
+            <ul>
+                <li><a href="{% url 'index' %}">Dashboard</a></li>
+                <li><a href="#">Amigos</a></li>
+                <li><a href="{% url 'lembretes' %}">Lembretes</a></li>
+                <li><a href="{% url 'cronometro' %}">Metas</a></li>
+                <li><a href="{% url 'cadastro_materia' %}">Adicionar materia</a></li>
+                <li><a href="{% url 'ranking' %}">Ranking</a></li>
+                <li> 
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}">Sair</a>
                     {% else %}
-                        <p>Não há lembretes registrados.</p>
+                    <a href="{% url 'login' %}">Entrar</a>
                     {% endif %}
-                </div>
-            </div>
-        </main>
+                </li>
+            </ul>
+        </div>
+
+        <section class="container-principal" >
+            <section class="content-day">
+                <section class="lembretes">
+                    <h2>Lembretes adicionados:</h2>
+                    <button type="button" class="btn-modal-day" id="btn-d-day">+</button>
+                </section>
+                <section class="content-lembretes">
+                {% if datas %}
+                    {% for data in datas %}
+                    <p>- {{ data.nome }} em {{ data.data }}</p>
+                    {% endfor %}
+                {% else %}
+                    <p>- Nenhum lembrete adicionado</p>
+                {% endif %}
+
+                </section>
+            </section>
+        </section>
+
+        <section class="modal-principal" id="modal-principal">
+            <form class="form-dia"id=form-dia method="POST">
+                {% csrf_token %}
+                <section class="titulo-form">
+                    <h2>Lembretes: </h2>
+                </section>
+                <section class="box-content">
+                    <section class="box-nome">
+                        <label for="nome-day">Nome:</label>
+                        <input type="text" name="nome-day" id="nome-day" class="nome-day" placeholder="Insira um nome para o lembrete" required>
+                    </section>
+
+                    <section class="box-data">
+                        <label for="data-day">Data:</label>
+                        <input type="date" name="data-day" id="data-day" required>
+                    </section>
+                <button type="submit" class="btn-d-submit">finalizar</button>
+                </section>
+            </form>
+        </section>
+        <script src="{% static '/lembrete.js' %}"></script>
+        {% endblock content %}
     </div>
 </body>
-</html>
+

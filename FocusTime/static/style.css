@@ -59,6 +59,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
+    margin-top: -1.5rem;
 
 }
 
@@ -75,7 +76,7 @@ body {
 }
 
 .sidebar ul li {
-    margin: 15px 0;
+    margin: 13px 0;
     text-align: center;
 }
 

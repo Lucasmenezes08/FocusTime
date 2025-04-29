@@ -150,6 +150,6 @@ def lembretes(request):
             )
             return redirect('lembretes')
 
-    lembretes = Lembrete.objects.filter(user=request.user).order_by('data', 'hora')
+    lembretes = Lembrete.objects.filter(user=request.user).order_by('data_lembrete', 'hora_lembrete')
     return render(request, 'lembretes.html', {'lembretes': lembretes})
 
