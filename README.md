@@ -76,10 +76,14 @@ O objetivo dessa segunda entrega é o começo da execução prática do projeto.
 adicionar texto
 
 <details>
-<summary><strong>Quadros e backlogs no jira</strong></summary>
+<summary><strong>Telas importantes</strong></summary>
+
+## Quadros e backlog do jira
   
 ![Print backlog](img/image-1.png)
 ![Print sprint](img/image-2.png) 
+
+## Issues/Bug-tracker
 ![Print issues](img/image-3.png)
 ![Print issues](img/image-4.png)
 
