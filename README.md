@@ -78,9 +78,10 @@ adicionar texto
 <details>
 <summary><strong>Quadros e backlogs no jira</strong></summary>
   
-![Print backlog]()
-![Print sprint]() 
-![Print issues]()
+![Print backlog](img/image-1.png)
+![Print sprint](img/image-2.png) 
+![Print issues](img/image-3.png)
+![Print issues](img/image-4.png)
 
 </details>
 
