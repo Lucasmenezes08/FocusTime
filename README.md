@@ -95,7 +95,7 @@ adicionar texto
 - **Relatório programação em par**: [relatório programação]()
 - **youtube**: [apresentação do protótipo - legendado/dublado]()
 - **site**: [Site do projeto]()
-- **Casos de erro**:[histórias]()
+- **Casos de erro**:[histórias](https://docs.google.com/document/d/1_avGztxE4w-pxfmpUrUluX79jIvsRKcQBkduOqWoXts/edit?usp=sharing)
 
   
 </details>
