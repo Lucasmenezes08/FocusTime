@@ -26,7 +26,7 @@
 O objetivo desta primeira entrega é fornecer uma visão inicial de como o aplicativo Focustime será visualmente e funcionalmente estruturado. Utilizando o Figma, esssa entrega permite visualizar o design e a experiência do usuário ainda como rascunho, servindo como base para o desenvolvimento completo do projeto. por mais que o trabalho não esteja finalizado, essa etapa oferece uma ideia clara de como o produto final ficará, proporcionando um direcionamento para ajustes e melhorias nas próximas fases de desenvolvimento.
 
 <details>
-<summary><strong>Quadros e backlogs no jira</strong></summary>
+<summary><strong>Telas importantes ⚠️</strong></summary>
   
 ![Backlog](img/WhatsApp%20Image%202025-03-28%20at%2014.42.53.jpeg)
 ![Quadros](img/WhatsApp%20Image%202025-03-28%20at%2014.43.03.jpeg)
@@ -51,7 +51,7 @@ O objetivo desta primeira entrega é fornecer uma visão inicial de como o aplic
 O objetivo dessa segunda entrega é o começo da execução prática do projeto. Nessa fase, o foco é implementar pelo menos três histórias de usuário definidas anteriormente, com o acompanhamento detalhado no JIRA. Essa etapa consolida o trabalho inicial e prepara para as próximas iterações, aproximando o projeto da sua versão final.
 
 <details>
-<summary><strong>Quadros e backlogs no jira</strong></summary>
+<summary><strong>Telas importantes ⚠️</strong></summary>
   
 ![Print backlog](img/Captura%20de%20tela%202025-04-06%20191244.png)
 ![Print sprint](img/Captura%20de%20tela%202025-04-06%20194901.png) 
@@ -76,8 +76,7 @@ O objetivo dessa segunda entrega é o começo da execução prática do projeto.
 adicionar texto
 
 <details>
-<summary><strong>Telas importantes</strong></summary>
-
+<summary><strong>Telas importantes ⚠️</strong></summary>
 ## Quadros e backlog do jira
   
 ![Print backlog](img/image-1.png)
