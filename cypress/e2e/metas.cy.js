@@ -61,7 +61,7 @@ Cypress.Commands.add('criarUser', () => {
   
      
       cy.get('button[type="submit"]').click();
-      //cy.contains('Preencha todos os campos').should('be.visible'); // Mensagem de erro
+      
     });
   });
   

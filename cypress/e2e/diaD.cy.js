@@ -3,7 +3,7 @@ describe('Login FocusTime - Cadastro de Datas Importantes (Dia D)', () => {
     Cypress.on('uncaught:exception', () => false);
   });
 
-  it('Cenário 1: Cadastrar um evento X para o dia 25/04/2025', () => {
+  it('Cenário 1: Cadastrar uma data importante', () => {
 
     cy.visit('/userslogin/');
     cy.get('input[name="username"]').type('Brenda Luana');
@@ -19,12 +19,11 @@ describe('Login FocusTime - Cadastro de Datas Importantes (Dia D)', () => {
     cy.get('#btn-d-day').click();
 
     cy.get('input[name="nome-day"]').type('Data Prova Final');
-    cy.get('#data-day').should('be.visible').type('2025-05-15');
+    cy.get('#data-day').should('be.visible').type('2025-04-25');
     cy.get('button.btn-d-submit').click();
 
     cy.wait(2000);
-    //cy.contains('Data Prova Final').should('be.visible');
-    //cy.contains('15/05/2025').should('be.visible');
+   
   });
 
   it('Cenário 2 (negativo): Cadastrar um evento X sem inserir uma data específica', () => {
@@ -45,6 +44,6 @@ describe('Login FocusTime - Cadastro de Datas Importantes (Dia D)', () => {
 
     cy.get('button.btn-d-submit').click();
 
-    // Ex: cy.contains('Por favor, preencha a data').should('be.visible');
+   
   });
 });
