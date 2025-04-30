@@ -91,7 +91,7 @@ O objetivo dessa entrega é avançar-mos mais na implementação das funcionalid
 <details>
 <summary><strong>Links importantes ⚠️</strong></summary>
   
-- **Relatório programação em par**: [relatório programação]()
+- **Relatório programação em par**: [relatório programação](https://docs.google.com/document/d/1zvUxUsj46cAgci9-EGHUNmPv332lqz4TNEfSFJVW_tI/edit?usp=sharing)
 - **youtube**: [apresentação do protótipo]() - [Testes com cypress](https://youtu.be/YZzJ2JsbH4w) - [CI/CD](https://youtu.be/2wsgb0F0zDU) - [site]()
 - **site**: [Site do projeto]()
 - **Casos de erro**:[histórias](https://docs.google.com/document/d/1_avGztxE4w-pxfmpUrUluX79jIvsRKcQBkduOqWoXts/edit?usp=sharing)
