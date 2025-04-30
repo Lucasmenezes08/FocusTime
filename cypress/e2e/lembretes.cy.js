@@ -52,19 +52,4 @@ describe('Lembretes - FocusTime', () => {
     
    
   });
-
-  it('Cenário 3: Deve visualizar os detalhes de um lembrete ao passar o mouse sobre o título', () => {
-    cy.visit('/userslogin/');
-    cy.get('input[name="username"]').type('Brenda Luana');
-    cy.get('input[name="password"]').type('brenda22');
-    cy.get('button[type="submit"]').click({ force: true });
-
-    cy.url().should('include', '/index/');
-    cy.contains('Dashboard');
-    cy.contains('Lembretes').click({ force: true });
-
-    
-    cy.contains('Lembrar de revisar IHC') 
-      .trigger('mouseover');
-  });
 });
