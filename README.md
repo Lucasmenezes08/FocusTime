@@ -73,8 +73,7 @@ O objetivo dessa segunda entrega é o começo da execução prática do projeto.
 
 ---
 ## Terceira entrega 📄
-adicionar texto
-
+O objetivo dessa entrega é avançar-mos mais na implementação das funcionalidades do projeto, adicionando 3 histórias novas e fazendo melhorias nas histórias previamente adicionadas. Esta etapa é fundamental para estabelecer as bases necessárias à conclusão do projeto
 <details>
 <summary><strong>Telas importantes ⚠️</strong></summary>
 ## Quadros e backlog do jira
