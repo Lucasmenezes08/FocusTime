@@ -93,7 +93,7 @@ adicionar texto
 <summary><strong>Links importantes ⚠️</strong></summary>
   
 - **Relatório programação em par**: [relatório programação]()
-- **youtube**: [apresentação do protótipo - legendado/dublado]()
+- **youtube**: [apresentação do protótipo]() - [Testes com cypress](https://youtu.be/YZzJ2JsbH4w) - [CI/CD](https://youtu.be/2wsgb0F0zDU) - [site]()
 - **site**: [Site do projeto]()
 - **Casos de erro**:[histórias](https://docs.google.com/document/d/1_avGztxE4w-pxfmpUrUluX79jIvsRKcQBkduOqWoXts/edit?usp=sharing)
 
