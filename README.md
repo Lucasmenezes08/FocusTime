@@ -109,7 +109,15 @@ O objetivo dessa entrega é avançar-mos mais na implementação das funcionalid
 </details>
 
 ---
+## Quarta Entrega:
+O Objetivo na quarta entrega é finalizar o nosso projeto que estamos desenvolvendo ao longo dessas entregas, refinando os ultimos detalhes para que nosso projeto seja finalizado e realizado da forma que idealizamos
+<details>
+<summary><strong>Links importantes ⚠️</strong></summary>
+</details>
 
+<details>
+<summary><strong>Telas importantes ⚠️</strong></summary>
+</details>
 
 
 ## GRUPO 
