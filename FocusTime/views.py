@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Materia, Meta, DataD, Lembrete
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -10,6 +10,31 @@ from django.db.models import Count
 def index(request):
     materias = Materia.objects.filter(user=request.user)
     return render(request, "index.html", {"materias": materias})
+
+
+@login_required(login_url='login')
+def editar_materia(request, materia_id):
+    materia = get_object_or_404(Materia, id=materia_id, user=request.user)
+    
+    if request.method == 'POST':
+        materia.nome_materia = request.POST.get('nome-materia')
+        materia.horas = request.POST.get('horas')
+        materia.minutos = request.POST.get('minutos')
+        materia.segundos = request.POST.get('segundos')
+        materia.save()
+        return redirect('index')
+    
+    return render(request, 'editar_materia.html', {'materia': materia})
+
+
+@login_required(login_url='login')
+def apagar_materia(request, materia_id):
+    materia = get_object_or_404(Materia, id=materia_id, user=request.user)
+    if request.method == 'POST':
+        materia.delete()
+        return redirect('index')
+    return render(request, 'confirmar_delete.html', {'materia': materia})
+
 
 
 
