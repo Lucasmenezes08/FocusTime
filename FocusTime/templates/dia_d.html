@@ -1,83 +1,87 @@
-{% extends 'index.html' %} 
+{% extends 'index.html' %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'dia-d.css' %}">
+{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dia-d</title>
-    {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'dia-d.css' %}">
-    {% endblock %}
-</head>
-<body>
-    {% block content %}
-    <div class="menuprincipal">
-        <div class="sidebar">
-            <div class="usericon">U</div>
-            <h2 class="user-name"> {{ user.username }} </h2>
-            <ul>
-                <li><a href="{% url 'index' %}">Dashboard</a></li>
-                <li><a href="#">Amigos</a></li>
-                <li><a href="{% url 'lembretes' %}">Lembretes</a></li>
-                <li><a href="{% url 'cronometro' %}">Metas</a></li>
-                <li><a href="{% url 'cadastro_materia' %}">Adicionar materia</a></li>
-                <li><a href="{% url 'ranking' %}">Ranking</a></li>
-                <li> 
-                    {% if user.is_authenticated %}
-                    <a href="{% url 'logout' %}">Sair</a>
-                    {% else %}
-                    <a href="{% url 'login' %}">Entrar</a>
-                    {% endif %}
-                </li>
-            </ul>
-        </div>
-
-
-        <section class="container-principal" >
-            <section class="content-day">
-                <section class="lembretes">
-                    <h2>Datas importantes:</h2>
-                    <button type="button" class="btn-modal-day" id="btn-d-day">+</button>
-                </section>
-                <section class="content-lembretes">
-                {% if datas %}
-                    {% for data in datas %}
-                     <p>- {{ data.nome }} em {{ data.data }}</p>
-                    {% endfor %}
+{% block content %}
+<div class="menuprincipal">
+    <div class="sidebar">
+        <div class="usericon">U</div>
+        <h2 class="user-name"> {{ user.username }} </h2>
+        <ul>
+            <li><a href="{% url 'index' %}">Dashboard</a></li>
+            <li><a href="#">Amigos</a></li>
+            <li><a href="{% url 'lembretes' %}">Lembretes</a></li>
+            <li><a href="{% url 'cronometro' %}">Metas</a></li>
+            <li><a href="{% url 'cadastro_materia' %}">Adicionar matéria</a></li>
+            <li><a href="{% url 'ranking' %}">Ranking</a></li>
+            <li>
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Sair</a>
                 {% else %}
-                    <p>- Nenhuma data adicionada</p>
+                <a href="{% url 'login' %}">Entrar</a>
                 {% endif %}
+            </li>
+        </ul>
+    </div>
 
-                </section>
+    <section class="container-principal">
+        <section class="content-day">
+            <section class="lembretes">
+                <h2>📅 Datas importantes:</h2>
+            </section>
+
+            <div class="mes-navegacao">
+                <button id="mes-anterior">◀</button>
+                <span id="mes-atual"></span>
+                <button id="mes-seguinte">▶</button>
+            </div>
+
+            <div class="calendario-container">
+                <div class="dias-semana">
+                    <div>D</div>
+                    <div>S</div>
+                    <div>T</div>
+                    <div>Q</div>
+                    <div>Q</div>
+                    <div>S</div>
+                    <div>S</div>
+                </div>
+                <div id="calendarDays" class="calendario-grid"></div>
+            </div>
+
+            <div id="evento-tooltip" class="evento-tooltip">
+                <div class="tooltip-content">
+                    <p class="descricao"></p>
+                    <p class="data"></p>
+                </div>
+            </div>
+
+            <section class="content-lembretes" style="display: none;">
+                {% if lembretes %}
+                    {% for lembrete in lembretes %}
+                        <div class="lembrete-item"
+                            data-titulo="{{ lembrete.titulo }}"
+                            data-descricao="{{ lembrete.descricao }}"
+                            data-hora="{{ lembrete.hora_lembrete }}"
+                            data-data="{{ lembrete.data_lembrete|date:'Y-m-d' }}">
+                            <span class="tooltip">
+                                <strong>{{ lembrete.titulo }}</strong>
+                                <span class="tooltip-text">
+                                    <p><strong>Data:</strong> {{ lembrete.data_lembrete }}</p>
+                                    <p><strong>Hora:</strong> {{ lembrete.hora_lembrete }}</p>
+                                    <p><strong>Descrição:</strong> {{ lembrete.descricao }}</p>
+                                </span>
+                            </span>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </section>
         </section>
+    </section>
+</div>
 
-        <section class="modal-principal" id="modal-principal">
-            <form class="form-dia"id=form-dia method="POST">
-                {% csrf_token %}
-                <section class="titulo-form">
-                    <h2>Lembretes: </h2>
-                </section>
-                <section class="box-content">
-                    <section class="box-nome">
-                        <label for="nome-day">Nome:</label>
-                        <input type="text" name="nome-day" id="nome-day" class="nome-day" placeholder="Insira um nome para data alvo" maxlength="20" required>
-                    </section>
-
-                    <section class="box-data">
-                        <label for="data-day">Data:</label>
-                        <input type="date" name="data-day" id="data-day" required>
-                    </section>
-                <button type="submit" class="btn-d-submit">finalizar</button>
-                </section>
-            </form>
-        </section>
-               
-        <script src="{% static '/dia-d.js' %}"></script>
-        {% endblock content %}
-    </div>
-</body>
-</html>
+<script src="{% static 'dia-d.js' %}"></script>
+{% endblock %}

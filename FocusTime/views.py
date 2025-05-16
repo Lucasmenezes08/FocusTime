@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Materia, Meta, DataD, Lembrete
+from .models import Materia, Meta, Lembrete
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -146,16 +146,12 @@ def ranking(request):
 
 @login_required(login_url='login')
 def dia_d(request):
-    if request.method == 'POST':
-        nome = request.POST.get('nome-day')
-        data = request.POST.get('data-day')
 
-        if nome and data:
-            DataD.objects.create(user=request.user, nome=nome, data=data)
-            return redirect('dia-d')  
+    lembretes = Lembrete.objects.filter(user=request.user).order_by('data_lembrete')
+    datas = [{'nome': lembrete.titulo, 'data': lembrete.data_lembrete} for lembrete in lembretes]
 
-    datas_importantes = DataD.objects.filter(user=request.user).order_by('data')
-    return render(request, "dia_d.html", {"datas": datas_importantes})
+    return render(request, "dia_d.html", {"datas": datas, "lembretes": lembretes})
+
 
 @login_required(login_url='login')
 def lembretes(request):
