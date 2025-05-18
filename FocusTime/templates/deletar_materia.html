@@ -1,0 +1,6 @@
+<h2>Você tem certeza que deseja deletar "{{ materia.nome_materia }}"?</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sim, deletar</button>
+    <a href="{% url 'index' %}">Cancelar</a>
+</form>

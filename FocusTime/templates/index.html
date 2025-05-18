@@ -22,7 +22,7 @@
     <div class="menuprincipal">
         <div class="sidebar">
             <div class="usericon">U</div>
-            <h2 class="user-name"> {{ user.username }} </h2>
+            <h2 class="user-name">{{ user.username }}</h2>
             <ul>
                 <li><a href="#">Dashboard</a></li>
                 <li><a href="#">Amigos</a></li>
@@ -68,12 +68,17 @@
                                 <button class="btn-close-modal" data-id="{{ materia.id }}">X</button>
                             </div>
         
-                            <div class="content">
-                                <div class="left-container">
-                                    <button class="btn-edit">Editar</button>
-                                    <button class="btn-delete">Deletar</button>
-                                </div>
-        
+                            <div class="left-container">
+                                <form action="{% url 'editar_materia' materia.id %}" method="get" style="margin-bottom: 0.5rem;">
+                                    <button type="submit">Editar</button>
+                                </form>
+
+                                <form action="{% url 'apagar_materia' materia.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" onclick="return confirm('Tem certeza que deseja apagar esta matéria?')">Apagar</button>
+                                </form>
+                            </div>
+
                                 <div class="right-container">
                                     <p>Tempo estipulado: </p>
                                     <div class="Tempo">

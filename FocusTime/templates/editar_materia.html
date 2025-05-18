@@ -1,0 +1,8 @@
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="nome-materia" value="{{ materia.nome_materia }}">
+    <input type="text" name="horas" value="{{ materia.horas }}">
+    <input type="text" name="minutos" value="{{ materia.minutos }}">
+    <input type="text" name="segundos" value="{{ materia.segundos }}">
+    <button type="submit">Salvar</button>
+</form>

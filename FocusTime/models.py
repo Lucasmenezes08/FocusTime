@@ -22,13 +22,13 @@ class Meta(models.Model):
     def _str_(self):
         return self.nome_metas
     
-class DataD (models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    nome = models.CharField(max_length=100)
-    data = models.DateField()
+# class DataD (models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     nome = models.CharField(max_length=100)
+#     data = models.DateField()
 
-    def _str_(self):
-        return f"{self.nome} - {self.data}"
+#     def _str_(self):
+#         return f"{self.nome} - {self.data}"
    
 
 class Lembrete(models.Model):

@@ -14,5 +14,7 @@ urlpatterns = [
     path("cadastro/", views.tela_cadastro, name = "cadastro_FocusTime"), 
     path('ranking/', views.ranking, name='ranking'), 
     path('dia-d/', views.dia_d ,name='dia-d'),
-    path('lembretes/', views.lembretes, name='lembretes'),  
+    path('lembretes/', views.lembretes, name='lembretes'),
+     path('materia/editar/<int:materia_id>/', views.editar_materia, name='editar_materia'),
+    path('materia/deletar/<int:materia_id>/', views.apagar_materia, name='apagar_materia'),
 ]
