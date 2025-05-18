@@ -31,10 +31,26 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
+        run: |
+          pip install -r requirements.txt
+          npm ci,
+
+      
+      - name: Run local server and tests
+        run: |
+          python manage.py migrate
+          python manage.py runserver &
+          sleep 5
+          npx cypress run,
+
+      
       - name: Cleaning testing files
         run: |
           rm .env
+          rm cypress.config.js
+          rm package-lock.json
+          rm package.json
+          rm -rf cypress
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
