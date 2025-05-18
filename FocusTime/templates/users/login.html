@@ -17,7 +17,7 @@
                 </div>
             {% endif %}
             
-            <form  class="form-login"method="POST" class="container-login">
+           <form class="form-login" method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
                 <label for="username">Usuário:</label>
                 <input type="text" id="username" name="username" placeholder="Nome de usuário" required autocomplete="username">
