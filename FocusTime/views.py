@@ -1,15 +1,28 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Materia, Meta, Lembrete
+from .models import Materia, Meta, Lembrete, CorMateria 
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
+from django.http import JsonResponse 
+import json 
 
 @login_required(login_url='login')
 def index(request):
-    materias = Materia.objects.filter(user=request.user)
-    return render(request, "index.html", {"materias": materias})
+    materias_qs = Materia.objects.filter(user=request.user)
+    materias_list = []
+    for materia_obj in materias_qs:
+        try:
+            cor_materia_obj = CorMateria.objects.get(materia=materia_obj)
+            materia_obj.cor = cor_materia_obj.cor
+        except CorMateria.DoesNotExist:
+           
+            materia_obj.cor = '#9A9A9A' 
+        materias_list.append(materia_obj)
+
+ 
+    return render(request, "index.html", {"materias": materias_list})
 
 
 @login_required(login_url='login')
@@ -174,3 +187,26 @@ def lembretes(request):
     lembretes = Lembrete.objects.filter(user=request.user).order_by('data_lembrete', 'hora_lembrete')
     return render(request, 'lembretes.html', {'lembretes': lembretes})
 
+
+
+@login_required
+def alterar_cor(request, materia_id):
+    if request.method == 'POST':
+        try:
+            nova_cor = request.POST.get('cor')
+            if not nova_cor:
+                return JsonResponse({'status': 'erro', 'mensagem': 'Cor não fornecida.'}, status=400)
+
+            materia_obj = get_object_or_404(Materia, id=materia_id, user=request.user)
+            
+            cor_materia_inst, created = CorMateria.objects.get_or_create(materia=materia_obj)
+            cor_materia_inst.cor = nova_cor
+            cor_materia_inst.save()
+            
+            return JsonResponse({'status': 'ok', 'nova_cor': nova_cor})
+        except Materia.DoesNotExist:
+            return JsonResponse({'status': 'erro', 'mensagem': 'Matéria não encontrada.'}, status=404)
+        except Exception as e:
+            return JsonResponse({'status': 'erro', 'mensagem': str(e)}, status=500)
+            
+    return JsonResponse({'status': 'erro', 'mensagem': 'Método não permitido.'}, status=405)
