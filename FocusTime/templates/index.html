@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "style.css" %}?v=3">
-    <link rel="stylesheet" href="{% static "modal-materia.css" %}"> <link rel="icon" href="{% static "img/faviconBatmanTIRARDEPOIS.jpg" %}">
+    <link rel="stylesheet" href="{% static "modal-materia.css" %}?v=3"> <link rel="icon" href="{% static "img/faviconBatmanTIRARDEPOIS.jpg" %}">
     {% block extra_css %}{% endblock %}
     <title>FocusTime</title>
 </head>
@@ -90,57 +90,41 @@
             </div>
 
             
-                <div class="modals">
-                    {% if materias %}
-                        {% for materia in materias %}
-                        <div class="modal" id="modal-{{ materia.id }}">
-                            <div class="modal-content">
-                                <div class="materia-nome">
-                                    <h2>{{materia.nome_materia}}</h2>
-                                    <button class="btn-close-modal" data-id="{{ materia.id }}">X</button>
+              <div class="modals">
+                {% if materias %}
+                    {% for materia in materias %}
+                    <div class="modal" id="modal-{{ materia.id }}">
+                        <div class="modal-content">
+                            <div class="materia-nome">
+                                <h2>{{materia.nome_materia}}</h2>
+                                <button class="btn-close-modal" data-id="{{ materia.id }}">X</button>
+                            </div>
+                            <div class="right-container">
+                                <p>Tempo estipulado:</p>
+                                <div class="Tempo">
+                                    {{materia.horas}}:{{materia.minutos}}:{{materia.segundos}}
                                 </div>
-            
-                                <div class="left-container">
-                                    <form action="{% url 'editar_materia' materia.id %}" method="get" style="margin-bottom: 0.5rem;">
+                            </div>
+                            <div class="left-container">
+                                <form action="{% url 'editar_materia' materia.id %}" method="get">
+                                    <div class="left-container">
+                                    <div class="button-group">
+                                        <form action="{% url 'editar_materia' materia.id %}" method="get">
                                         <button type="submit">Editar</button>
-                                    </form>
-
-                                    <form action="{% url 'apagar_materia' materia.id %}" method="post">
+                                        </form>
+                                        <form action="{% url 'apagar_materia' materia.id %}" method="post">
                                         {% csrf_token %}
                                         <button type="submit" onclick="return confirm('Tem certeza que deseja apagar esta matéria?')">Apagar</button>
-                                    </form>
-                                </div>
-
-                                    <div class="right-container">
-                                        <p>Tempo estipulado: </p>
-                                        <div class="Tempo">
-                                            <span class="horas">{{materia.horas}}</span>
-                                            <span class="ponto">:</span>
-                                            <span class="minutos">{{materia.minutos}}</span>
-                                            <span class="ponto">:</span>
-                                            <span class="segundos">{{materia.segundos}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-secundario" id="modal-editar-{{ materia.id }}">
-                                    <div class="modal-content">
-                                        <h2>Editar Matéria: {{ materia.nome_materia }}</h2>
-                                        <form method="POST" action="">
-
                                         </form>
                                     </div>
-
-                                </div>
-
+                                    </div>
+                                </form>
                             </div>
-
-                            </div>
-
-
-                            
                         </div>
-                            {% endfor %}
-                        {% endif %}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
                     </div>
                 </div>
             </div>
