@@ -22,4 +22,5 @@ urlpatterns = [
     path('meta/editar/<int:meta_id>/', views.editar_meta, name='editar_metas'),
     path('meta/apagar/<int:meta_id>/', views.apagar_meta, name='deletar_metas'),
     path("alterar-cor/<int:materia_id>/", views.alterar_cor, name="alterar_cor"),
+    path("estatisticas/" , views.estatisticas , name='estatisticas'),
 ]

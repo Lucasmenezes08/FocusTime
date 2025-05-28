@@ -263,3 +263,22 @@ def alterar_cor(request, materia_id):
             return JsonResponse({'status': 'erro', 'mensagem': str(e)}, status=500)
             
     return JsonResponse({'status': 'erro', 'mensagem': 'Método não permitido.'}, status=405)
+
+
+@login_required
+def estatisticas (request):
+    
+    labels = []
+    data = []
+    
+    queryset = Materia.objects.order_by('-horas')
+    
+    for materia in queryset:
+        labels.append(materia.nome_materia)
+        data.append(materia.horas)
+    
+    
+    return render (request , 'estatisticas.html' ,{
+        'labels': labels,
+        'data': data
+    })

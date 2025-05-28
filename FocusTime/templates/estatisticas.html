@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'estatisticas.css' %}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+{% endblock %}
+
+{% block content %}
+<div class="menuprincipal">
+  <div class="sidebar">
+    <div class="usericon">U</div>
+    <h2 class="user-name">{{ user.username }}</h2>
+    <ul>
+      <li><a href="{% url 'index' %}">Dashboard</a></li>
+      <li><a href="{% url 'estatisticas' %}">Estatisticas</a></li>
+      <li><a href="{% url 'lembretes' %}">Lembretes</a></li>
+      <li><a href="{% url 'cronometro' %}">Metas</a></li>
+      <li><a href="{% url 'cadastro_materia' %}">Adicionar matéria</a></li>
+      <li><a href="{% url 'ranking' %}">Ranking</a></li>
+      <li>
+        {% if user.is_authenticated %}
+          <a href="{% url 'logout' %}">Sair</a>
+        {% else %}
+          <a href="{% url 'login' %}">Entrar</a>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+
+  <section class="graficos">
+    <section class="grafico_container">
+      <canvas id="myChart"></canvas>
+    </section>
+  </section>
+
+  {{ labels|json_script:"chart-labels" }}
+  {{ data|json_script:"chart-data" }}
+</div>
+
+<script src="{% static 'estatistica_materia.js' %}"></script>
+{% endblock %}
