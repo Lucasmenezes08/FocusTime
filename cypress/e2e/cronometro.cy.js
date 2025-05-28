@@ -13,8 +13,8 @@ describe('Login FocusTime', () => {
       cy.contains('a', 'Metas').click();
       cy.get('img[alt="Play"]').dblclick();
       cy.get('#check').check(); 
-      cy.get('#btn-modal-submit').click();  // Para clicar no botão
+      cy.get('#btn-modal-submit').click(); 
       cy.get('img[src="/static/img/icon_play.png"]').click();
-      cy.wait(2000);
+      cy.wait(4000);
     });
 })

@@ -19,7 +19,7 @@ describe('Lembretes', () => {
       cy.get('button.btn-d-submit').click();
       cy.wait(2000);
     })
-    it('Deve fazer login com dados válidos', () => {
+    it('Deve fazer login com dados inválidos', () => {
         cy.visit('/userslogin/');
   
         cy.get('input[name="username"]').type('Brenda Luana');
