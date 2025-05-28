@@ -4,6 +4,7 @@ describe('Lembretes - FocusTime', () => {
   });
 
   
+
   it('Cenário 1: Deve cadastrar um lembrete de estudo com todos os campos preenchidos', () => {
     
     cy.visit('/userslogin/');
@@ -31,7 +32,7 @@ describe('Lembretes - FocusTime', () => {
 
 
   it('Cenário 2 (negativo): Não deve cadastrar lembrete com campos incompletos', () => {
-  
+
     cy.visit('/userslogin/');
     cy.get('input[name="username"]').type('Brenda Luana');
     cy.get('input[name="password"]').type('brenda22');

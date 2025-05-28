@@ -1,21 +1,18 @@
 {% load static %}
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "style.css" %}">
-    <link rel="stylesheet" href="{% static "modal-materia.css" %}">
-    <link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">
+    <link rel="stylesheet" href="{% static "style.css" %}?v=3">
+    <link rel="stylesheet" href="{% static "modal-materia.css" %}?v=3"> <link rel="icon" href="{% static "img/faviconBatmanTIRARDEPOIS.jpg" %}">
     {% block extra_css %}{% endblock %}
     <title>FocusTime</title>
 </head>
-
 <body>
     <div class="btn-dia-d">
-        <a href="{% url 'dia-d' %}">Dia-D</a>
+        <a href="{% url 'dia-d' %}">calendário</a>
     </div>
 
     {% block content %}
@@ -24,20 +21,18 @@
             <div class="usericon">U</div>
             <h2 class="user-name">{{ user.username }}</h2>
             <ul>
-                <li><a href="#">Dashboard</a></li>
+                <li><a href="{% url 'index' %}">Dashboard</a></li>
                 <li><a href="#">Amigos</a></li>
                 <li><a href="{% url 'lembretes' %}">Lembretes</a></li>
                 <li><a href="{% url 'cronometro' %}">Metas</a></li>
-                <li><a href="{% url 'cadastro_materia' %}">Adicionar materia</a></li>
+                <li><a href="{% url 'cadastro_materia' %}">Adicionar matéria</a></li>
                 <li><a href="{% url 'ranking' %}">Ranking</a></li>
                 <li> 
-                        {% if user.is_authenticated %}
+                     {% if user.is_authenticated %}
                         <a href="{% url 'logout' %}">Sair</a>
                     {% else %}
                         <a href="{% url 'login' %}">Entrar</a>
                     {% endif %}
-                </li>
-
             </ul>
         </div>
     
@@ -45,20 +40,57 @@
             {% if materias %}
             <div class="materia_cadastrada">
                 <div class="container_materia-wrapper">
-                {% for materia in materias %}
-                    <div class="materia-wrapper">
-                        <div class="container_materia">
-                            <h2>{{materia.nome_materia}}</h2>
-                            <p> <span>TEMPO: </span>{{materia.horas}}:{{materia.minutos}}:{{materia.segundos}}</p>
+                    {% for materia_obj in materias %} 
+                        <div class="materia-wrapper">
+                            <div class="container_materia" id="container-materia-{{ materia_obj.id }}" style="background-color: {{ materia_obj.cor }};">
+                                <h2>{{ materia_obj.nome_materia }}</h2>
+                                <p> <span>TEMPO: </span>{{ materia_obj.horas }}:{{ materia_obj.minutos }}:{{ materia_obj.segundos }}</p>
+                            </div>
+                            <div class="materia-botoes-wrapper" style="display: flex; gap: 10px; margin-top: 5px;">
+                                <button class="btn-consultar-materia" data-id="{{ materia_obj.id }}" type="button">+</button>
+                                <button class="btn-selecionar-cores" data-id="{{ materia_obj.id }}" type="button" title="Alterar cor">🔘</button> 
+                                
+                            </div>
                         </div>
-                        <button class="btn-consultar-materia" data-id="{{ materia.id }}" type="button">+</button>
-                    </div>
-               {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
+            {% else %}
+            <p>Nenhuma matéria cadastrada.</p>
             {% endif %}
 
-            <div class="modals">
+            <div id="modalCor" class="modal-cores-geral" style="display:none;"> 
+                <div class="modal-cores-conteudo">
+                    <span class="modal-cores-fechar">&times;</span>
+                    <h3>Escolha uma cor</h3>
+                    <div class="color-options">
+                        <div class="color-box" data-color="#ff4d4d" style="background-color: #ff4d4d;"></div>
+                        <div class="color-box" data-color="#4d94ff" style="background-color: #4d94ff;"></div>
+                        <div class="color-box" data-color="#4dff88" style="background-color: #4dff88;"></div>
+                        <div class="color-box" data-color="#ffff66" style="background-color: #ffff66;"></div>
+                        <div class="color-box" data-color="#8e44ad" style="background-color: #8e44ad;"></div> 
+                        <div class="color-box" data-color="#f39c12" style="background-color: #f39c12;"></div> 
+                        <div class="color-box" data-color="#16a085" style="background-color: #16a085;"></div> 
+                        <div class="color-box" data-color="#2c3e50" style="background-color: #2c3e50;"></div> 
+                        <div class="color-box" data-color="#e74c3c" style="background-color: #e74c3c;"></div>
+                        <div class="color-box" data-color="#9A9A9A" style="background-color: #9A9A9A;"></div> 
+                        <div class="color-box" data-color="#28a745" style="background-color: #28a745;"></div> 
+                        <div class="color-box" data-color="#4B0082" style="background-color: #4B0082;"></div> 
+                        <div class="color-box" data-color="#20c997" style="background-color: #20c997;"></div> 
+                        <div class="color-box" data-color="#343a40" style="background-color: #343a40;"></div> 
+                        <div class="color-box" data-color="#34568B" style="background-color: #34568B;"></div> 
+                        <div class="color-box" data-color="#C2185B" style="background-color: #C2185B;"></div> 
+                        <div class="color-box" data-color="#D2691E" style="background-color: #D2691E;"></div> 
+                        <div class="color-box" data-color="#c0392b" style="background-color: #c0392b;"></div> 
+                        <div class="color-box" data-color="#6A5ACD" style="background-color: #6A5ACD;"></div> 
+                        <div class="color-box" data-color="#556B2F" style="background-color: #556B2F;"></div> 
+                        <div class="color-box" data-color="#ffffff" style="background-color: #ffffff; border: 1px solid #ccc;"></div>
+                    </div>
+                </div>
+            </div>
+
+            
+              <div class="modals">
                 {% if materias %}
                     {% for materia in materias %}
                     <div class="modal" id="modal-{{ materia.id }}">
@@ -67,56 +99,40 @@
                                 <h2>{{materia.nome_materia}}</h2>
                                 <button class="btn-close-modal" data-id="{{ materia.id }}">X</button>
                             </div>
-        
+                            <div class="right-container">
+                                <p>Tempo estipulado:</p>
+                                <div class="Tempo">
+                                    {{materia.horas}}:{{materia.minutos}}:{{materia.segundos}}
+                                </div>
+                            </div>
                             <div class="left-container">
-                                <form action="{% url 'editar_materia' materia.id %}" method="get" style="margin-bottom: 0.5rem;">
-                                    <button type="submit">Editar</button>
-                                </form>
-
-                                <form action="{% url 'apagar_materia' materia.id %}" method="post">
-                                    {% csrf_token %}
-                                    <button type="submit" onclick="return confirm('Tem certeza que deseja apagar esta matéria?')">Apagar</button>
-                                </form>
-                            </div>
-
-                                <div class="right-container">
-                                    <p>Tempo estipulado: </p>
-                                    <div class="Tempo">
-                                        <span class="horas">{{materia.horas}}</span>
-                                        <span class="ponto">:</span>
-                                        <span class="minutos">{{materia.minutos}}</span>
-                                        <span class="ponto">:</span>
-                                        <span class="segundos">{{materia.segundos}}</span>
+                                <form action="{% url 'editar_materia' materia.id %}" method="get">
+                                    <div class="left-container">
+                                    <div class="button-group">
+                                        <form action="{% url 'editar_materia' materia.id %}" method="get">
+                                        <button type="submit">Editar</button>
+                                        </form>
+                                        <form action="{% url 'apagar_materia' materia.id %}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit" onclick="return confirm('Tem certeza que deseja apagar esta matéria?')">Apagar</button>
+                                        </form>
                                     </div>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="modal-secundario" id="modal-editar-{{ materia.id }}">
-                                <div class="modal-content">
-                                    <h2>Editar Matéria: {{ materia.nome_materia }}</h2>
-                                    <form method="POST" action="">
-
-                                    </form>
-                                </div>
-
-                            </div>
-
                         </div>
-
-                        </div>
-
-
-                        
                     </div>
-                        {% endfor %}
-                    {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
+    </div>
     {% endblock content %}
-    <script src="{% static 'modal-mat.js' %}"></script>
 
-
+    <script src="{% static 'cores.js' %}"></script>
+    <script src="{% static 'modal-mat.js' %}"></script> 
 </body>
 </html>
-    

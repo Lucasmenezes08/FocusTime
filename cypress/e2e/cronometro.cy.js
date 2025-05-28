@@ -1,4 +1,5 @@
 describe('Login FocusTime', () => {
+
   beforeEach(() => {
     Cypress.on('uncaught:exception', () => false);
   });
@@ -26,3 +27,4 @@ describe('Login FocusTime', () => {
     cy.wait(2000); 
   });
 });
+

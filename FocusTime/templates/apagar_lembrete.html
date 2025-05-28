@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Confirmar exclusão do lembrete</h2>
+
+<p>Tem certeza que deseja apagar o lembrete "{{ lembrete.titulo }}"?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Sim, apagar</button>
+  <a href="{% url 'lembretes' %}">Cancelar</a>
+</form>
+{% endblock %}

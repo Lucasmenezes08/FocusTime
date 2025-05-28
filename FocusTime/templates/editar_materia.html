@@ -1,8 +1,60 @@
-<form method="post">
-    {% csrf_token %}
-    <input type="text" name="nome-materia" value="{{ materia.nome_materia }}">
-    <input type="text" name="horas" value="{{ materia.horas }}">
-    <input type="text" name="minutos" value="{{ materia.minutos }}">
-    <input type="text" name="segundos" value="{{ materia.segundos }}">
-    <button type="submit">Salvar</button>
-</form>
+{% extends 'index.html' %} 
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'editarmateria.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="menuprincipal">
+    <div class="sidebar">
+        <div class="usericon">U</div>
+        <h2 class="user-name">{{ user.username }}</h2>
+        <ul>
+            <li><a href="{% url 'index' %}">Dashboard</a></li>
+            <li><a href="#">Amigos</a></li>
+            <li><a href="{% url 'lembretes' %}">Lembretes</a></li>
+            <li><a href="{% url 'cronometro' %}">Metas</a></li>
+            <li><a href="{% url 'cadastro_materia' %}">Adicionar matéria</a></li>
+            <li><a href="{% url 'ranking' %}">Ranking</a></li>
+            <li> 
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}">Sair</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Entrar</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+
+    <div class="container-edit">
+        <div class="edit-box">
+            <h2 class="edit-title">Editar {{ materia.nome_materia }}:</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label>Novo nome:</label>
+                    <input type="text" name="nome-materia" value="{{ materia.nome_materia }}" class="nome-input">
+                </div>
+                
+                <div class="input-group">
+                    <label>Novo tempo:</label>
+                    <div class="time-inputs">
+                        <input type="text" name="horas" value="{{ materia.horas }}" class="time-input">
+                        <span>:</span>
+                        <input type="text" name="minutos" value="{{ materia.minutos }}" class="time-input">
+                        <span>:</span>
+                        <input type="text" name="segundos" value="{{ materia.segundos }}" class="time-input">
+                    </div>
+                </div>
+                
+                <button type="submit" class="save-btn">Salvar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="btn-dia-d">
+    <a href="{% url 'dia-d' %}">calendário</a>
+</div>
+{% endblock %}

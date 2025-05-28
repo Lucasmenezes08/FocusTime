@@ -72,7 +72,7 @@ O objetivo dessa segunda entrega é o começo da execução prática do projeto.
   
 - **Relatório programação em par**: [relatório programação](https://docs.google.com/document/d/1-XticSoMchm8W1HqzMP1LiDjTKTyeXXCzLYorMRl1rw/edit)
 - **youtube**: [apresentação do protótipo - legendado/dublado](https://youtu.be/8OI8J7PQgNk?feature=shared)
-- **site**: [Site do projeto](https://focustime.azurewebsites.net/)
+- **site**: [Site do projeto](https://focus-time.azurewebsites.net/)
 - **Casos de erro**:[histórias](https://docs.google.com/document/d/1_avGztxE4w-pxfmpUrUluX79jIvsRKcQBkduOqWoXts/edit?usp=sharing)
 
   
@@ -101,10 +101,12 @@ O objetivo dessa entrega é avançar-mos mais na implementação das funcionalid
 <summary><strong>Links importantes ⚠️</strong></summary>
   
 - **Relatório programação em par**: [relatório programação](https://docs.google.com/document/d/1zvUxUsj46cAgci9-EGHUNmPv332lqz4TNEfSFJVW_tI/edit?usp=sharing)
+- **Jira**: [Projeto no Jira](https://focustimenow.atlassian.net/jira/software/projects/FOC/summary)
+- **Figma**: [Figma](https://www.figma.com/design/Zsu2h3dlnZQFJjIIsyMDmL/FocusTime?m=auto&t=hjfoeNPBILq3BWJs-6)  
 - **youtube**: [apresentação do protótipo](https://youtu.be/7ADkBCvspQU) - [Testes com cypress](https://youtu.be/YZzJ2JsbH4w) - [CI/CD](https://youtu.be/2wsgb0F0zDU) - [site com novas funcionalidades](https://www.youtube.com/watch?v=yvoK4hlT0fo) - [site completo](https://www.youtube.com/watch?v=Zv2JBcdDJLs)
-- **site**: [Site do projeto](https://focustime.azurewebsites.net/)
+- **site**: [Site do projeto](https://focus-time.azurewebsites.net/)
 - **Casos de erro**:[histórias](https://docs.google.com/document/d/1_avGztxE4w-pxfmpUrUluX79jIvsRKcQBkduOqWoXts/edit?usp=sharing)
-- **Figma**: [Figma](https://www.figma.com/design/Zsu2h3dlnZQFJjIIsyMDmL/FocusTime?m=auto&t=hjfoeNPBILq3BWJs-6)   
+ 
   
 </details>
 

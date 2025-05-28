@@ -1,11 +1,10 @@
 {% extends 'index.html' %} 
 {% load static %}
 
-
 <link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'lembrete.css' %}">
+<link rel="stylesheet" href="{% static 'lembrete.css' %}?v=2">
 {% endblock %}
 
 <body>
@@ -40,8 +39,8 @@
                 <section class="content-lembretes">
                     {% if lembretes %}
                     {% for lembrete in lembretes %}
-                    <div class="lembrete-item">
-                        <span class="tooltip">
+                    <div class="lembrete-item" style="display: flex; align-items: center; justify-content: space-between;">
+                        <span class="tooltip" style="flex-grow: 1; cursor: default;">
                             <strong>{{ lembrete.titulo }}</strong>
                             <span class="tooltip-text">
                                 <p><strong>Data:</strong> {{ lembrete.data_lembrete }}</p>
@@ -49,17 +48,25 @@
                                 <p><strong>Descrição:</strong> {{ lembrete.descricao }}</p>
                             </span>
                         </span>
+
+                        <div style="display: flex; gap: 8px; margin-left: 12px;">
+                            <a href="{% url 'editar_lembrete' lembrete.id %}" class="btn-editar">Editar</a>
+                            <form action="{% url 'deletar_lembrete' lembrete.id %}" method="post" onsubmit="return confirm('Tem certeza que deseja apagar este lembrete?');" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-apagar">Apagar</button>
+                            </form>
+                        </div>
                     </div>
                     {% endfor %}
-                {% else %}
+                    {% else %}
                     <p>- Nenhum lembrete adicionado</p>
-                {% endif %}
-            </section>
+                    {% endif %}
+                </section>
             </section>
         </section>
 
         <section class="modal-principal" id="modal-principal">
-            <form class="form-dia"id=form-dia method="POST">
+            <form class="form-dia" id="form-dia" method="POST">
                 {% csrf_token %}
                 <section class="titulo-form">
                     <h2>Lembretes: </h2>
@@ -92,4 +99,3 @@
         {% endblock content %}
     </div>
 </body>
-

@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/Brendalu2005/FocusTime#readme",
   "devDependencies": {
-    "cypress": "^14.3.2"
+    "cypress": "^14.4.0"
   }
 }

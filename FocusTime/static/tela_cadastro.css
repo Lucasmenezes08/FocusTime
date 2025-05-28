@@ -1,11 +1,10 @@
-
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: serif;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
-
 
 .content {
     width: 100vw;
@@ -20,7 +19,7 @@ body {
     display: flex;
     align-items: end;
     flex-direction: column;
-    background : linear-gradient(90deg, rgb(169, 168, 168) , rgb(170, 166, 166));
+    background: #7FBFB0;
 }
 
 .content-right img {
@@ -31,6 +30,7 @@ body {
 .content-right h1 {
     font-size: 1.42rem;
     margin-right: 1rem;
+    color: white;
 }
 
 .content-left {
@@ -47,240 +47,163 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #9A9A9A;
-    width: 50%;
-    height: 60%;
-    border-radius: 20px;
-    box-shadow: 0px 5px 10px rgb(35, 33, 33) ;
-    padding: 2rem;
-    margin-top: 5rem;
+    background-color: white;
+    width: 400px;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .form-cadastro h2 {
-    margin-top: -2rem;
+    color: #333;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
-    font-size: 2.1rem;
+    text-align: center;
 }
 
 .form-cadastro label {
-    margin-bottom: 0.1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
 }
 
-.container-usuario {
+.container-usuario, .container-senha {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:start;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-.container-usuario input {
+.container-usuario input, .container-senha input {
     width: 100%;
-    border: none;
-    border-radius: 10px;
-    padding: 1rem;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.container-usuario input:focus, .container-senha input:focus {
+    border-color: #7FBFB0;
     outline: none;
-    box-sizing: border-box;
-
-}
-
-.container-usuario input:hover::placeholder{
-    color:transparent;
-    transition: 1s ease-in-out;
-}
-
-
-.container-senha {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    margin-bottom: 2rem;
-}
-
-.container-senha input{
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    padding: 1rem;
-    outline: none;
-    box-sizing: border-box;
-}
-
-.container-senha input:hover::placeholder{
-    color:transparent;
-    transition: 1s ease-in-out;
-}
-
-.btn-show-senha {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    margin-bottom: 2rem;
-}
-
-
-.login {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.login a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-weight: 500;
 }
 
 .form-cadastro button {
+    width: 100%;
     padding: 0.8rem;
-    border-radius: 15px;
     border: none;
+    border-radius: 5px;
+    background-color: #7FBFB0;
+    color: white;
+    font-size: 1rem;
     cursor: pointer;
-
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
 }
+
 .form-cadastro button:hover {
-    transition-timing-function: ease-in-out;
-    background-color: #7c7878;
+    background-color: #6ba697;
 }
-
 
 .login-main {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #7FBFB0;
 }
 
-
 .container {
-    width: 40%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 400px;
 }
 
 .container h2 {
-    margin-bottom: -4rem;
-    font-size: 2rem;
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
-
 
 .form-login {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #9A9A9A;
-    width: 60%;
-    height: 80%;
-    border-radius: 20px;
-    box-shadow: 0px 5px 10px rgb(35, 33, 33) ;
-    padding: 3rem;
-    margin-top: 5rem;
+    width: 100%;
 }
 
-
 .form-login label {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
+    color: #333;
     margin-bottom: 0.5rem;
 }
 
 .form-login input {
     width: 100%;
-    border: none;
-    border-radius: 10px;
-    padding: 1rem;
-    outline: none;
-    box-sizing: border-box;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-login input:focus {
+    border-color: #7FBFB0;
+    outline: none;
 }
 
 .form-login button {
-    margin-left: 0.6rem;
-    padding: 1rem 2.7rem;
+    width: 100%;
+    padding: 0.8rem;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
+    background-color: #7FBFB0;
+    color: white;
+    font-size: 1rem;
     cursor: pointer;
-    background-color: #cac5c5;
+    transition: background-color 0.3s ease;
     margin-top: 1rem;
 }
 
-.n-conta a {
+.form-login button:hover {
+    background-color: #6ba697;
+}
+
+.login a, .n-conta a {
+    color: #7FBFB0;
     text-decoration: none;
-    background-color: #7c7878;
-    color: white;
-    cursor: pointer;
-    padding: 0.3rem 0.7rem;
-    border-radius: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    margin-top: 1rem;
+    display: inline-block;
 }
 
-.btn-login {
-    margin-left: 0.6rem;
-    padding: 0.4rem;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    background-color: #9a9494;
+.login a:hover, .n-conta a:hover {
+    color: #6ba697;
 }
-
-
-
-
-
 
 .messages {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+    max-width: 400px;
+    margin-bottom: 1rem;
+}
+
+.messages .success, .messages .error, .messages .warning {
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .messages .success {
     background-color: #d4edda;
     color: #155724;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .messages .error {
     background-color: #f8d7da;
     color: #721c24;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .messages .warning {
     background-color: #fff3cd;
     color: #856404;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-
-

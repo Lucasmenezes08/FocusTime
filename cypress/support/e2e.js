@@ -15,3 +15,16 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+beforeEach(() => {
+  
+  cy.clearCookies();
+
+ 
+  cy.clearLocalStorage();
+
+ 
+  cy.window().then(win => {
+    win.sessionStorage.clear();
+  });
+});

@@ -40,3 +40,10 @@ class Lembrete(models.Model):
 
     def __str__(self):
         return f"{self.titulo} - {self.data_lembrete} {self.hora_lembrete}"
+    
+class CorMateria(models.Model):
+    materia = models.OneToOneField(Materia, on_delete=models.CASCADE, primary_key=True)
+    cor = models.CharField(max_length=7, default="#9A9A9A") 
+
+    def __str__(self):
+        return f"{self.materia.nome_materia} - {self.cor}"

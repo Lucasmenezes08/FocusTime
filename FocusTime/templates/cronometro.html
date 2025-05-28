@@ -7,13 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FocusTime</title>
     <link rel="stylesheet" href="{% static "cronometro.css" %}">
-    <link rel="icon" href="{% static "img\faviconBatmanTIRARDEPOIS.jpg" %}">
+    <link rel="icon" href="{% static "img/faviconBatmanTIRARDEPOIS.jpg" %}">
     <link rel="stylesheet" href="{% static "modal.css" %}">
 </head>
 <body>
+    <section style="position: absolute; top: 20px; right: 20px;">
+    <a href="{% url 'index' %}" class="btn-voltar">Voltar</a>
+    </section>
+
     <section class="container-pai">
         <section class="container-cronometro" id="cronometro">
-            <section  id="segundos">
+            <section id="segundos">
                 <h3>00</h3>
             </section>
             <p>:</p>
@@ -28,11 +32,11 @@
                 <button id="play" action="start">
                     <img src="{% static 'img/icon_play.png' %}" alt="Play">
                 </button>
-                
             </section>
         </section>
+
         <section class="break">
-           <br/>
+            <br/>
         </section>
 
         <section class="modals" id="modal">
@@ -42,10 +46,10 @@
                 <div class="materias">
                     {% for materia in materias %}
                         <div class="materia-container">
-                            <h3><span>{{materia.nome_materia}}</span> <input type="checkbox" id="check" name="check-materia" required></h3>
+                            <h3><span>{{materia.nome_materia}}</span> 
+                            <input type="checkbox" id="check" name="check-materia" required></h3>
                         </div>
-                        {% endfor %}
-                    
+                    {% endfor %}
                 </div>
                 <button type="button" class="btn-submit-materia" id="btn-modal-submit">
                     Enviar
@@ -54,26 +58,35 @@
             </section>
         </section>
 
-
         <section class="lugar-metas" id="metas">
-            {% if metas %}
-            <div class="metas">
-                {% for meta in metas %}
-                    <div class="metas-container">
-                        <div class="meta-nome">
-                            <p>{{meta.nome_metas}}</p>
-                        </div>
-                        <div class="meta-tempo">
-                            <p>{{meta.horas_meta}} : {{meta.minutos_meta}} : {{meta.segundos_meta}}</p>
-                        </div>
-                       
+        {% if metas %}
+        <div class="metas">
+            {% for meta in metas %}
+                <div class="metas-container">
+                    <div class="meta-nome">
+                        <p>{{ meta.nome_metas }}</p>
                     </div>
-            </div>
-                 {% endfor %}
-            {% endif %}
+                   <div class="meta-tempo" style="flex-shrink: 0; margin-left: -10px;">
+                        <p>{{ meta.horas_meta }} : {{ meta.minutos_meta }} : {{ meta.segundos_meta }}</p>
+                    </div>
+
+                    <div class="meta-acoes">
+                        <div class="button-group">
+                            <form action="{% url 'editar_metas' meta.id %}" method="get">
+                                <button type="submit" class="btn-editar">Editar</button>
+                            </form>
+                            <form action="{% url 'deletar_metas' meta.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-apagar" onclick="return confirm('Tem certeza que deseja apagar esta meta?')">Apagar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
         </section>
 
-    {% load static %}
     <script src="{% static '/cronometro.js' %}"></script>
     <script src="{% static '/modal.js' %}"></script>
 </body>
