@@ -50,7 +50,7 @@ Cypress.Commands.add('criarUser', () => {
       cy.contains('Dashboard');
       cy.wait(2000);
   
-      cy.contains('Adicionar materia').click({ force: true });
+      cy.contains('Adicionar matéria').click({ force: true });
       cy.url().should('include', '/cadastro_materia/');
       cy.contains('insira').should('be.visible');
   
