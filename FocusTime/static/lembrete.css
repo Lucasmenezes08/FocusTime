@@ -164,6 +164,9 @@
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .tooltip {
@@ -187,4 +190,31 @@
 
 .tooltip:hover .tooltip-text {
     visibility: visible;
+}
+
+
+.btn-editar, .btn-apagar {
+    background-color: #45857A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.btn-editar:hover, .btn-apagar:hover {
+    background-color: #3A726A;
+}
+
+.btn-apagar {
+    padding-left: 14px;
+    padding-right: 14px;
 }

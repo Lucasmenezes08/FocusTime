@@ -6,19 +6,22 @@
     display: block;
 }
 
+
 .modal-content {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    border-radius: 5px;
-    min-width: 350px;
-    max-width: 400px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    font-family: sans-serif;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    font-family: 'Segoe UI', sans-serif;
+    padding: 25px 25px;
+    box-sizing: border-box;
 }
+
 
 .materia-nome {
     background-color: #7FBFB0;
@@ -27,12 +30,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 6px 6px 0 0;
 }
 
 .materia-nome h2 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin: 0;
 }
+
 
 .btn-close-modal {
     background: none;
@@ -42,60 +47,52 @@
     cursor: pointer;
 }
 
-.modal-body {
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
 
 .right-container {
+    margin-top: 20px;
+    text-align: center;
     color: #333;
     font-size: 1rem;
-    text-align: center;
 }
 
 .right-container p {
-    margin-bottom: 5px;
     font-weight: bold;
+    margin-bottom: 10px;
 }
+
 
 .Tempo {
     font-family: monospace;
-    display: flex;
+    display: inline-flex;
     gap: 4px;
     justify-content: center;
-    margin-top: 5px;
-}
-
-.Tempo span {
-    display: inline-block;
-    padding: 6px 10px;
+    background-color: #f4f4f4;
     border: 1px solid #ccc;
-    border-radius: 3px;
-    min-width: 25px;
-    text-align: center;
-    background: #f8f8f8;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 1.1rem;
 }
 
-/* Botões lado a lado abaixo do tempo */
+
 .button-group {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 10px;
+    margin-top: 25px;
 }
 
 .button-group button {
     background-color: #276c7b;
     color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
     cursor: pointer;
-    font-size: 0.95rem;
     min-width: 100px;
-    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.button-group button:hover {
+    background-color: #1f5660;
 }

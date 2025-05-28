@@ -107,6 +107,32 @@ def cadastro(request):
     return render(request, "cadastro.html")
 
 
+@login_required(login_url='login')
+def editar_meta(request, meta_id):
+    meta = get_object_or_404(Meta, id=meta_id, user=request.user)
+    
+    if request.method == 'POST':
+        meta.nome_metas = request.POST.get('nome-meta')
+        meta.horas_meta = request.POST.get('horas-meta')
+        meta.minutos_meta = request.POST.get('minutos-meta')
+        meta.segundos_meta = request.POST.get('segundos-meta')
+        meta.save()
+        return redirect('cronometro') 
+    
+    return render(request, 'editar_metas.html', {'meta': meta})
+
+@login_required(login_url='login')
+def apagar_meta(request, meta_id):
+    meta = get_object_or_404(Meta, id=meta_id, user=request.user)
+    
+    if request.method == 'POST':
+        meta.delete()
+        return redirect('index')
+    
+    return render(request, 'deletar_metas.html', {'meta': meta})
+
+
+
 
 @login_required(login_url='login')
 def cronometro(request):
@@ -186,6 +212,33 @@ def lembretes(request):
 
     lembretes = Lembrete.objects.filter(user=request.user).order_by('data_lembrete', 'hora_lembrete')
     return render(request, 'lembretes.html', {'lembretes': lembretes})
+
+
+@login_required(login_url='login')
+def editar_lembrete(request, lembrete_id):
+    lembrete = get_object_or_404(Lembrete, id=lembrete_id, user=request.user)
+    
+    if request.method == 'POST':
+        lembrete.titulo = request.POST.get('titulo')
+        lembrete.descricao = request.POST.get('descricao')
+        lembrete.data_lembrete = request.POST.get('data')
+        lembrete.hora_lembrete = request.POST.get('hora')
+        lembrete.save()
+        return redirect('lembretes')  
+    
+    return render(request, 'editar_lembrete.html', {'lembrete': lembrete})
+
+@login_required(login_url='login')
+def apagar_lembrete(request, lembrete_id):
+    lembrete = get_object_or_404(Lembrete, id=lembrete_id, user=request.user)
+    
+    if request.method == 'POST':
+        lembrete.delete()
+        return redirect('lembretes')
+    
+    return render(request, 'deletar_lembrete.html', {'lembrete': lembrete})
+
+
 
 
 

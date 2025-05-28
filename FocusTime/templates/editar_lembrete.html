@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'editarlembretes.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="menuprincipal">
+    <div class="sidebar">
+        <div class="usericon">U</div>
+        <h2 class="user-name">{{ user.username }}</h2>
+        <ul>
+            <li><a href="{% url 'index' %}">Dashboard</a></li>
+            <li><a href="#">Amigos</a></li>
+            <li><a href="{% url 'lembretes' %}">Lembretes</a></li>
+            <li><a href="{% url 'cronometro' %}">Metas</a></li>
+            <li><a href="{% url 'cadastro_materia' %}">Adicionar matéria</a></li>
+            <li><a href="{% url 'ranking' %}">Ranking</a></li>
+            <li>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}">Sair</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Entrar</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+
+    <div class="container-edit">
+        <div class="edit-box">
+            <h2 class="edit-title">Editar Lembrete: {{ lembrete.titulo }}</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="titulo">Título:</label>
+                    <input type="text" name="titulo" id="titulo" value="{{ lembrete.titulo }}" class="nome-input" required>
+                </div>
+                <div class="input-group">
+                    <label for="data">Data:</label>
+                    <input type="date" name="data" id="data" value="{% if lembrete.data_lembrete %}{{ lembrete.data_lembrete|date:'Y-m-d' }}{% endif %}" class="nome-input" required>
+                </div>
+                <div class="input-group">
+                    <label for="hora">Hora:</label>
+                    <input type="time" name="hora" id="hora" value="{% if lembrete.hora_lembrete %}{{ lembrete.hora_lembrete|time:'H:i' }}{% endif %}" class="nome-input" required>
+                </div>
+                <div class="input-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea name="descricao" id="descricao" class="nome-input" rows="4">{{ lembrete.descricao }}</textarea>
+                </div>
+                <button type="submit" class="save-btn">Salvar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="btn-dia-d">
+    <a href="{% url 'dia-d' %}">calendário</a>
+</div>
+{% endblock %}

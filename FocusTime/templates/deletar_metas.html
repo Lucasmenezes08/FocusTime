@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Confirmar exclusão da meta</h2>
+
+<p>Tem certeza que deseja apagar a meta "{{ meta.nome_metas }}"?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Sim, apagar</button>
+  <a href="{% url 'index' %}">Cancelar</a>
+</form>
+{% endblock %}
