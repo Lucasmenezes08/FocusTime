@@ -127,7 +127,7 @@ def apagar_meta(request, meta_id):
     
     if request.method == 'POST':
         meta.delete()
-        return redirect('index')
+        return redirect('cronometro')
     
     return render(request, 'deletar_metas.html', {'meta': meta})
 
