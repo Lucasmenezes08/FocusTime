@@ -6,28 +6,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Editar Meta - FocusTime</title>
-    <link rel="stylesheet" href="{% static 'cronometro.css' %}">
     <link rel="stylesheet" href="{% static 'editarmetas.css' %}">  
     <link rel="stylesheet" href="{% static 'modal.css' %}">
 </head>
 <body>
     <section class="container-pai">
-
-    
-        <section class="container-cronometro" id="cronometro">
-            <section id="segundos"><h3>00</h3></section>
-            <p>:</p>
-            <section id="minutos"><h3>00</h3></section>
-            <p>:</p>
-            <section id="horas"><h3>00</h3></section>
-            <section class="acoes" id="acoes">
-                <button id="play" action="start">
-                    <img src="{% static 'img/icon_play.png' %}" alt="Play" />
-                </button>
-            </section>
-        </section>
-
-        
         <section class="container-edit" style="margin-top: 30px;">
             <div class="edit-box">
                 <h2 class="edit-title">Editar Meta: {{ meta.nome_metas }}</h2>
@@ -54,10 +37,8 @@
                 </form>
             </div>
         </section>
-
     </section>
 
-<script src="{% static 'cronometro.js' %}"></script>
 <script src="{% static 'modal.js' %}"></script>
 </body>
 </html>
