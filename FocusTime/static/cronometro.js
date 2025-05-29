@@ -1,7 +1,9 @@
-const hours = document.getElementById('horas');
-const minutes = document.getElementById('minutos');
-const seconds = document.getElementById('segundos');
+const hours = document.querySelector('#horas h3');
+const minutes = document.querySelector('#minutos h3');
+const seconds = document.querySelector('#segundos h3');
 const meta_lista = document.getElementById('metas');
+const cronometroElement = document.querySelector('.cronometro');
+
 let intervalid = 0;
 let timer = 0;
 let mark = [];
@@ -34,6 +36,9 @@ const toggleTimer = () => {
     clearInterval(intervalid);
 
     if (action === 'start' || action ===  'continue'){
+
+        cronometroElement.style.setProperty('--load-progress', '1');
+
         intervalid = setInterval(() =>{
             timer += 1;
             setTimer(timer);
@@ -44,11 +49,31 @@ const toggleTimer = () => {
     }
 
     else if (action === 'pause'){
+        cronometroElement.style.setProperty('--load-progress', '0');
         btn_play.setAttribute('action' , 'continue');
         btn_play.innerHTML = '<img src="/static/img/icon_play.png">';
     }
     
 }
+
+
+const restartButton = document.getElementById('restart');
+
+restartButton.addEventListener('click', () => {
+    clearInterval(intervalid);
+    timer = 0;
+    setTimer(timer);
+
+    const btn_play = document.getElementById('play');
+    btn_play.setAttribute('action', 'start');
+    btn_play.innerHTML = '<img src="/static/img/icon_play.png">';
+    
+    cronometroElement.style.setProperty('--load-progress', '0');
+});
+
+
+
+
 
 const formatNumber = (num) => num.toString().padStart(2, '0');
 
