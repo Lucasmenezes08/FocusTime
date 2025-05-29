@@ -271,7 +271,8 @@ def estatisticas (request):
     labels = []
     data = []
     
-    queryset = Materia.objects.order_by('-horas')
+    queryset = Materia.objects.filter(user=request.user).order_by('-horas')
+
     
     for materia in queryset:
         labels.append(materia.nome_materia)
