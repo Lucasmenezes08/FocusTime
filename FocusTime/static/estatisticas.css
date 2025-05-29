@@ -1,0 +1,28 @@
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+
+.graficos {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grafico_container {
+    height: 85vh;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas#myChart {
+  width: 95% !important;
+  height: auto !important;
+}
