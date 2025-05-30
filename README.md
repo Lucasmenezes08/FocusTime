@@ -115,6 +115,7 @@ O objetivo dessa entrega é avançar-mos mais na implementação das funcionalid
 O Objetivo na quarta entrega é finalizar o nosso projeto que estamos desenvolvendo ao longo dessas entregas, refinando os ultimos detalhes para que nosso projeto seja finalizado e realizado da forma que idealizamos
 <details>
 <summary><strong>Links importantes ⚠️</strong></summary>
+- **Relatório programação em par**: [relatório programação](https://docs.google.com/document/d/1WeKh-WHA8VRrtPISkAx1ikSQMNJgCBVzV3QPDgCBl1k/edit?usp=sharing)
 </details>
 
 <details>
