@@ -122,6 +122,19 @@ O Objetivo na quarta entrega é finalizar o nosso projeto que estamos desenvolve
 
 <details>
 <summary><strong>Telas importantes ⚠️</strong></summary>
+
+## Backlog
+![Backlog](img/backlog-4entrega.jpeg)
+
+## Issues
+![Issues](img/issues-4entrega.jpeg)
+
+## Summary
+![Summary](img/summary-4entrega.jpeg)
+
+## Board
+![Board](img/board-4entrega.jpeg)
+
 </details>
 
 
