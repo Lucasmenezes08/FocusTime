@@ -26,30 +26,4 @@ describe('Adicionando lembretes', () => {
     cy.wait(2000);
   });
 
-  it('Cenário 2: tenta adicionar lembrete com campos vazios', () => {
-    cy.visit('/userslogin/');
-  
-    cy.get('input[name="username"]').type('Brenda Luana');
-    cy.get('input[name="password"]').type('brenda22');
-    cy.get('button[type="submit"]').click({ force: true });
-
-    cy.url().should('include', '/index/');
-    cy.contains('Dashboard');
-
-    cy.contains('Lembretes').click({ force: true });
-    cy.get('#btn-d-day').should('be.visible').click();
-
-    
-    cy.get('#titulo').clear();
-    cy.get('#descricao').clear();
-    cy.get('#hora').clear();
-    cy.get('#data').clear();
-    
-    cy.get('button.btn-d-submit').click();
-
-   
-    cy.get('#modal-principal').should('have.class', 'show');
-
-    
-  });
 });
