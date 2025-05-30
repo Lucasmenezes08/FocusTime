@@ -30,7 +30,8 @@
     <div class="container-edit">
         <div class="edit-box">
             <h2 class="edit-title">Editar {{ materia.nome_materia }}:</h2>
-            <form method="post">
+            <div id="mensagem-erro" style="display: none; color: red; margin-bottom: 10px;"></div>
+            <form method="post" id="form-editar-materia">
                 {% csrf_token %}
                 <div class="input-group">
                     <label>Novo nome:</label>
@@ -57,4 +58,5 @@
 <div class="btn-dia-d">
     <a href="{% url 'dia-d' %}">calendário</a>
 </div>
+<script src="{% static '/editarmateria.js' %}"></script>
 {% endblock %}

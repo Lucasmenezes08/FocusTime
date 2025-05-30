@@ -10,7 +10,7 @@ describe('Criar matéria e editar meta cadastrada', () => {
     cy.contains('Metas').should('be.visible');
   });
 
-  it('Deve criar uma matéria e editar a meta cadastrada', () => {
+  it('Cenário 1: Deve criar uma matéria e editar a meta cadastrada', () => {
     const materiaNome = 'PIF';
     const metaNome = 'Jogo';
     const novoNomeMeta = 'Lista';

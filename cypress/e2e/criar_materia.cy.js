@@ -33,7 +33,8 @@ Cypress.Commands.add('preencherFormularioMeta', (materia, meta) => {
   cy.get('input[name="segundos2"]').type('6');
 });
 
-describe('Login FocusTime', () => {
+
+describe('Cenário 1: cadastra uma matéria corretamente', () => {
   beforeEach(() => {
     Cypress.on('uncaught:exception', () => false);
     cy.criarUser();
@@ -43,10 +44,9 @@ describe('Login FocusTime', () => {
     cy.login();
   });
 
-  it('Deve fazer login e cadastrar duas materias', () => {
+  it('Deve fazer login e cadastrar duas matérias corretamente', () => {
     cy.login();
 
-    
     cy.wait(2000);
     cy.contains('Adicionar matéria').click({ force: true });
     cy.url().should('include', '/cadastro_materia/');
@@ -54,7 +54,6 @@ describe('Login FocusTime', () => {
     cy.preencherFormularioMeta('FDS', 'Estudar Cypress');
     cy.get('button[type="submit"]').click();
 
-    
     cy.contains('Adicionar matéria').click({ force: true });
     cy.url().should('include', '/cadastro_materia/');
     cy.contains('insira').should('be.visible');
@@ -73,5 +72,26 @@ describe('Login FocusTime', () => {
     cy.get('input[name="segundos"]').type('9');
     cy.get('input[name="segundos2"]').type('0');
     cy.get('button[type="submit"]').click();
+  });
+});
+
+
+describe('Cenário 2: tenta cadastrar uma matéria com dados inválidos', () => {
+  beforeEach(() => {
+    Cypress.on('uncaught:exception', () => false);
+    cy.criarUser();
+    cy.login();
+  });
+
+  it('Não deve permitir cadastro com campos obrigatórios vazios', () => {
+    cy.contains('Adicionar matéria').click({ force: true });
+    cy.url().should('include', '/cadastro_materia/');
+    cy.contains('insira').should('be.visible');
+    
+  
+    cy.get('button[type="submit"]').click();
+
+   
+    cy.url().should('include', '/cadastro_materia/');
   });
 });
