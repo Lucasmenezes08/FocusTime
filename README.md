@@ -118,6 +118,8 @@ O Objetivo na quarta entrega é finalizar o nosso projeto que estamos desenvolve
 
 - **Relatório programação em par**: [relatório programação](https://docs.google.com/document/d/1WeKh-WHA8VRrtPISkAx1ikSQMNJgCBVzV3QPDgCBl1k/edit?usp=sharing)
 
+- **youtube**: [Screencast do figma](https://youtu.be/KHl9B-tLY58?si=hOWuPh4FRs-7hgP0)
+
 </details>
 
 <details>
