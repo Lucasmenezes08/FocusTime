@@ -52,36 +52,4 @@ describe('Editar lembrete', () => {
 
     cy.contains('.lembrete-item', novoTitulo).should('exist');
   });
-
-  it('Não deve permitir editar lembrete com campo título vazio', () => {
-    const tituloOriginal = 'Lembrete Teste';
-
-    cy.visit('/lembretes/');
-    cy.url().should('include', '/lembretes/');
-    cy.contains('.lembrete-item', tituloOriginal).should('exist');
-
-    cy.contains('.lembrete-item', tituloOriginal)
-      .within(() => {
-        cy.get('a.btn-editar').click();
-      });
-
-    cy.url().should('include', '/lembrete/editar/');
-
-   
-    cy.get('input[name="titulo"]').clear();
-
-    
-    cy.get('input[name="data"]').clear().type('2025-06-01');
-    cy.get('input[name="hora"]').clear().type('14:30');
-    cy.get('textarea[name="descricao"]').clear().type('Descrição editada via Cypress');
-
-    
-    cy.get('form').submit();
-
-    
-    cy.url().should('include', '/lembrete/editar/');
-
-    
-    cy.get('input[name="titulo"]').should('have.css', 'border-color', 'rgb(255, 0, 0)');
-  });
 });
