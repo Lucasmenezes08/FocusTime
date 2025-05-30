@@ -9,7 +9,7 @@ describe('Editar lembrete', () => {
     cy.url().should('include', '/index/');
   });
 
-  it('Deve criar e depois editar um lembrete existente', () => {
+  it('Cenario 1: Deve criar e depois editar um lembrete existente', () => {
     const tituloOriginal = 'Lembrete Teste';
     const dataOriginal = '2025-05-30';
     const horaOriginal = '12:00';
