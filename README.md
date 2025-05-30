@@ -138,7 +138,7 @@ O Objetivo na quarta entrega é finalizar o nosso projeto que estamos desenvolve
 
 - **youtube**: [Screencast do figma](https://youtu.be/KHl9B-tLY58?si=hOWuPh4FRs-7hgP0) - [CI/CD](https://youtu.be/cMqKgPRMBtA) - [Testes automatizados](https://youtu.be/ii_JnvUZFt4)
 - **site**: [Site do projeto](https://focus-time.azurewebsites.net/)
-- **Casos de erro**:[histórias - erro](https://docs.google.com/document/d/1_avGztxE4w-pxfmpUrUluX79jIvsRKcQBkduOqWoXts/edit?usp=sharing) 
+- **Casos de erro**:[histórias - erro](https://docs.google.com/document/d/1_avGztxE4w-pxfmpUrUluX79jIvsRKcQBkduOqWoXts/edit?usp=sharing) - **Histórias**: [Histórias](https://docs.google.com/document/d/1lMAlUU5gH1FcrGkc81p7c0IjeVZAILIUsYVd-0jkeJw/edit?usp=sharing)
 
 </details>
 
